@@ -16,10 +16,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('foo', function () {
-    return 'Hello World';
-});
-
 // 请求User控制器中的index方法
 Route::get('demo', 'DemoController@index');
 
@@ -55,3 +51,9 @@ Route::group(['namespace' => 'Backend'], function (){
 
     Route::get('backend/home', 'HomeController@index');
 });
+
+
+/*** ********************自带Auth路由************************/
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
