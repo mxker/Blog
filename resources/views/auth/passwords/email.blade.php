@@ -1,9 +1,20 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
+@section('body')
+<body class="bg-color center-wrapper">
+<div class="center-content">
+    <h3 style="color: red;">{{ session('message') }}</h3>
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">Reset Password</div>
                 <div class="panel-body">

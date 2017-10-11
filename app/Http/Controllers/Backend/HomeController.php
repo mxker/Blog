@@ -13,7 +13,7 @@ class HomeController extends Controller {
 
     public function __construct(){
         parent::__construct();
-        $this ->session();
+//        $this ->session();
     }
 
     public function index(){

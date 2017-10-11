@@ -14,6 +14,7 @@ class Controller extends BaseController
 
     public function session(Request $request){
         $session = $request ->session()-> get('loginInfo');
+        file_put_contents('F:/demo.txt',var_export($session,true),FILE_APPEND);
         if($session){
             return redirect('/backend/home');
         }else{
