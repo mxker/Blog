@@ -121,21 +121,22 @@
 @show
 
 <body>
+    {{--系统设置--}}
     <div class="ob_options hidden-xs">
         <div class="options">
             <h6>COLOR SKINS</h6>
-            {{--<div class="options-container color_skins">--}}
-                {{--<a href="/css/skins/palette.1.css" class="css_orange cs_color cs_1"></a>--}}
-                {{--<a href="/css/skins/palette.2.css" class="css_orange cs_color cs_2"></a>--}}
-                {{--<a href="/css/skins/palette.3.css" class="css_orange cs_color cs_3"></a>--}}
-                {{--<a href="/css/skins/palette.4.css" class="css_orange cs_color cs_4"></a>--}}
-                {{--<a href="/css/skins/palette.5.css" class="css_orange cs_color cs_5"></a>--}}
-                {{--<a href="/css/skins/palette.6.css" class="css_orange cs_color cs_6"></a>--}}
-                {{--<a href="/css/skins/palette.7.css" class="css_orange cs_color cs_7"></a>--}}
-                {{--<a href="/css/skins/palette.8.css" class="css_orange cs_color cs_8"></a>--}}
-                {{--<a href="/css/skins/palette.9.css" class="css_orange cs_color cs_9"></a>--}}
-                {{--<a href="/css/skins/palette.10.css" class="css_orange cs_color cs_10"></a>--}}
-            {{--</div>--}}
+            <div class="options-container color_skins">
+                <a href="/css/skins/palette.1.css" class="css_orange cs_color cs_1"></a>
+                <a href="/css/skins/palette.2.css" class="css_orange cs_color cs_2"></a>
+                <a href="/css/skins/palette.3.css" class="css_orange cs_color cs_3"></a>
+                <a href="/css/skins/palette.4.css" class="css_orange cs_color cs_4"></a>
+                <a href="/css/skins/palette.5.css" class="css_orange cs_color cs_5"></a>
+                <a href="/css/skins/palette.6.css" class="css_orange cs_color cs_6"></a>
+                <a href="/css/skins/palette.7.css" class="css_orange cs_color cs_7"></a>
+                <a href="/css/skins/palette.8.css" class="css_orange cs_color cs_8"></a>
+                <a href="/css/skins/palette.9.css" class="css_orange cs_color cs_9"></a>
+                <a href="/css/skins/palette.10.css" class="css_orange cs_color cs_10"></a>
+            </div>
             <h6>FONT OPTIONS</h6>
             <div class="options-container font_options">
                 <select class="input-sm">
@@ -163,6 +164,7 @@
         <div class="ob_toggle bg-color"><span class="fa fa-cog"></span>
         </div>
     </div>
+
     <div class="app boxed box-shadow" style="width: 100%;">
 
         <header class="header header-fixed navbar">
@@ -170,9 +172,7 @@
                 <a href="javascript:;" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
                 <a href="index.html" class="navbar-brand text-white">
                     <i class="fa fa-stop mg-r-sm"></i>
-                    <span class="heading-font">
-Cameo<b>ADMIN</b>
-</span>
+                    <span class="heading-font">Blog | <b>管理平台</b></span>
                 </a>
             </div>
             <form class="navbar-form navbar-left hidden-xs" role="search">
@@ -185,9 +185,7 @@ Cameo<b>ADMIN</b>
             </form>
             <ul class="nav navbar-nav navbar-right off-right">
                 <li class="hidden-xs">
-                    <a href="javascript:;">
-+Gerald Theodore Morris
-</a>
+                    <a href="javascript:;">@yield('email')</a>
                 </li>
                 <li class="notifications dropdown hidden-xs">
                     <a href="javascript:;" data-toggle="dropdown">
@@ -198,19 +196,19 @@ Cameo<b>ADMIN</b>
                         <div class="panel bg-white no-border no-margin">
                             <div class="panel-heading no-radius">
                                 <small>
-<b>Notifications</b>
-</small>
+                                    <b>Notifications</b>
+                                </small>
                                 <small class="pull-right">
-<a href="javascript:;" class="mg-r-xs">mark as read</a>&#8226;
-<a href="javascript:;" class="fa fa-cog mg-l-xs"></a>
-</small>
+                                    <a href="javascript:;" class="mg-r-xs">mark as read</a>&#8226;
+                                    <a href="javascript:;" class="fa fa-cog mg-l-xs"></a>
+                                </small>
                             </div>
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <a href="javascript:;">
                                         <span class="pull-left mg-t-xs mg-r-md">
-<img src="/img/face4.jpg" class="avatar avatar-sm img-circle" alt="">
-</span>
+                                            <img src="/img/face4.jpg" class="avatar avatar-sm img-circle" alt="">
+                                        </span>
                                         <div class="m-body show pd-t-xs">
                                             <span>Dean Winchester</span>
                                             <span>Posted on to your wall</span>
@@ -264,7 +262,7 @@ Cameo<b>ADMIN</b>
                         <li>
                             <a href="javascript:;">
                                 <div class="pd-t-sm">
-                                    gerald@morris.com
+                                    @yield('name')
                                     <br>
                                     <small class="text-muted">4.2 MB of 51.25 GB used</small>
                                 </div>
@@ -275,22 +273,22 @@ Cameo<b>ADMIN</b>
                             </a>
                         </li>
                         <li>
-                            <a href="profile.html">Settings</a>
+                            <a href="javascript:;">Settings</a>
                         </li>
                         <li>
                             <a href="javascript:;">Upgrade</a>
                         </li>
                         <li>
                             <a href="javascript:;">Notifications
-<div class="badge bg-danger pull-right">3</div>
-</a>
+                                <div class="badge bg-danger pull-right">3</div>
+                            </a>
                         </li>
                         <li>
                             <a href="javascript:;">Help ?</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="signin.html">Logout</a>
+                            <a href="/backend/logout">Logout</a>
                         </li>
                     </ul>
                 </li>

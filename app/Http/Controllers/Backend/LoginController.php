@@ -9,7 +9,6 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\UserModel;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller {
@@ -33,9 +32,9 @@ class LoginController extends Controller {
             'password' => 'required|between:6,18',
         ]);
 
-        $result = UserModel::check($request,$username, $password);
-        if($result){
-            return redirect('/backend/home');
+        $userInfo = UserModel::check($request, $username, $password);
+        if($userInfo){
+            return redirect('/backend/home/'.$userInfo->admin_id);
         }else{
             // 使用一次性session做提示
             $request->session()->flash('message', '账号和密码错误');
@@ -43,9 +42,16 @@ class LoginController extends Controller {
         }
     }
 
+    /**
+     * 用户退出登录状态
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function logout(Request $request){
-        $session = $request ->session()-> get('loginInfo');
-        dd($session);
+        $result = $request -> session() -> remove('userInfo');
+        if($result){
+            return redirect('/backend/login');
+        }
     }
 
     /**

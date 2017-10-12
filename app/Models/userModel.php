@@ -31,7 +31,7 @@ class UserModel extends Model {
         $userInfo = UserModel::where(['admin_name' => $username]) -> first();
         if($userInfo){
             if($password == decrypt($userInfo->admin_password)){
-                $request -> session()-> put('loginInfo',[
+                $request -> session()-> put('userInfo',[
                     'isLogin' => 1,
                     'userName' => $userInfo->admin_name,
                 ]);
@@ -49,7 +49,7 @@ class UserModel extends Model {
                     ]);
                 }
 
-                return true;
+                return $userInfo;
             }else{
                 return false;
             }

@@ -49,7 +49,8 @@ Route::group(['namespace' => 'Backend'], function (){
     Route::any('backend/register', 'LoginController@register');
     Route::get('backend/logout', 'LoginController@logout');
 
-    Route::get('backend/home', 'HomeController@index');
+    // seesion中间件验证
+    Route::get('backend/home/{id}', 'HomeController@index')->middleware('session');
 });
 
 

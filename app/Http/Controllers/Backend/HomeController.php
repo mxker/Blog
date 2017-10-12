@@ -8,15 +8,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\UserModel;
 
 class HomeController extends Controller {
 
-    public function __construct(){
-        parent::__construct();
-//        $this ->session();
-    }
-
-    public function index(){
-        return view('backend.home');
+    public function index($id){
+        $userInfo = UserModel::where(['admin_id' => $id]) -> first() -> toArray();
+        return view('backend.home',['userInfo' => $userInfo]);
     }
 }
