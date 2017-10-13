@@ -51,6 +51,12 @@ Route::group(['namespace' => 'Backend'], function (){
 
     // seesion中间件验证
     Route::get('backend/home/{id}', 'HomeController@index')->middleware('session');
+
+    // 文章管理
+
+    // 分类管理
+    Route::get('backend/article/add', 'articleController@add');
+    Route::get('backend/article/list', 'articleController@articleList');
 });
 
 

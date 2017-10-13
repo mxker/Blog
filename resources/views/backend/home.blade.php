@@ -3,7 +3,6 @@
 @section('email')
     {{ $userInfo['admin_email'] }}
 @endsection
-
 @section('name')
     {{ $userInfo['admin_name'] }}
 @endsection
