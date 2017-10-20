@@ -48,10 +48,13 @@
                     <header class="panel-heading">登录</header>
                     <div class="bg-white user pd-md">
                         <h6><strong>Welcome.</strong>Sign in to get started!</h6>
-                        <form role="form" action="/backend/login/check" method="post">
+                        <form role="form" action="{{ url('backend/login/check') }}" method="post">
                             <input name="username" type="text" class="form-control mg-b-sm" placeholder="Username" autofocus>
                             <input name="password" type="password" class="form-control" placeholder="Password">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <div style="margin-top: 10px;">
+                                {!! \Germey\Geetest\Geetest::render() !!}
+                            </div>
                             <label class="checkbox pull-left">
                                 <input type="checkbox" value="remember-me">记住密码
                             </label>
@@ -70,7 +73,7 @@
                             {{--</a>--}}
                         {{--</p>--}}
                         <p class="center-block mg-t mg-b text-right">Dont have and account?
-                            <a href="/backend/register">Sign up.</a>
+                            <a href="{{ url('backend/register') }}">Sign up.</a>
                         </p>
                     </div>
                 </section>

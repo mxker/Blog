@@ -13,19 +13,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">分类层级</label>
+                    <label class="col-sm-2 control-label">层级关系</label>
                     <div class="col-sm-10">
-                        <select class="form-control input-rounded">
-                            <option value="">第一级分类</option>
-                            <option value="">第二级分类</option>
-                            <option value="">第三级分类</option>
+                        <select class="form-control input-rounded" name="art_parent_id">
+                            <option value="0">第一级分类</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">分类排序</label>
                     <div class="col-sm-10">
-                        <input class="form-control input-rounded" id="focusedInput" type="text" value="This is focused">
+                        <input class="form-control input-rounded" id="focusedInput" name="art_sort" type="number" value="分类排序关系">
                     </div>
                 </div>
                 <div class="form-group">
@@ -39,11 +37,12 @@
                     <label class="col-sm-2 control-label">分类描述</label>
                     <div class="col-sm-10">
                         <textarea class="form-control input-rounded" rows="3" name="art_description"></textarea>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label"></label>
-                    <div class="col-sm-10"><a href="javascript:;" class="btn btn-success btn-rounded">添加分类</a></div>
+                    <div class="col-sm-10"><button class="btn btn-success btn-rounded" type="submit">添加分类</button></div>
                 </div>
             </form>
         </div>

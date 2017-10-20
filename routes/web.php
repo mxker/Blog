@@ -48,6 +48,7 @@ Route::group(['namespace' => 'Backend'], function (){
     Route::post('backend/login/check', 'LoginController@checkLogin');
     Route::any('backend/register', 'LoginController@register');
     Route::get('backend/logout', 'LoginController@logout');
+    Route::get('backend/code', 'LoginController@code');
 
     // seesion中间件验证
     Route::get('backend/home/{id}', 'HomeController@index')->middleware('session');
