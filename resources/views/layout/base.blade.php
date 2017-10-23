@@ -332,12 +332,12 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="active">
-                                    <a href="/backend/article/add">
+                                    <a href="/backend/category/create">
                                         <span>添加分类</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/backend/article/list">
+                                    <a href="/backend/category">
                                         <span>分类列表</span>
                                     </a>
                                 </li>
@@ -438,6 +438,9 @@
     <script src="/js/main.js"></script>
 
     <script src="/js/panel.js"></script>
+
+    // 引入弹层框
+    <script src="{{ asset('/org/layer/layer.js') }}"></script>
 </body>
 
 </html>

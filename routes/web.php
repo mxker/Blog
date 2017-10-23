@@ -17,10 +17,10 @@ Route::get('/', function () {
 });
 
 // 请求User控制器中的index方法
-Route::get('demo', 'DemoController@index');
+//Route::get('demo', 'DemoController@index');
 
 // 参数路由
-Route::get('demo/show/{id}', 'DemoController@show');
+//Route::get('demo/show/{id}', 'DemoController@show');
 
 // 【群组路由】Auth文件夹下面的控制路由
 Route::group(['namespace' => 'Auth'], function (){
@@ -29,14 +29,14 @@ Route::group(['namespace' => 'Auth'], function (){
 });
 
 // 资源路由 适用于资源控制器（artisan 创建控制器）
-Route::resource('photo', 'PhotoController');
+//Route::resource('photo', 'PhotoController');
 
 /** ****************Demo 路由******************* */
 
-Route::get('view','DemoController@view');
-Route::get('template','DemoController@template');
-Route::get('model','DemoController@model');
-Route::any('request','DemoController@request');
+//Route::get('view','DemoController@view');
+//Route::get('template','DemoController@template');
+//Route::get('model','DemoController@model');
+//Route::any('request','DemoController@request');
 
 
 /** ****************Website backend 路由******************* */
@@ -54,10 +54,12 @@ Route::group(['namespace' => 'Backend'], function (){
     Route::get('backend/home/{id}', 'HomeController@index')->middleware('session');
 
     // 文章管理
-
-    // 分类管理
     Route::get('backend/article/add', 'articleController@add');
     Route::get('backend/article/list', 'articleController@articleList');
+
+    // 分类管理
+    Route::resource('backend/category', 'CategoryController');
+    Route::any('backend/category/changeOrder', 'CategoryController@changeOrder');
 });
 
 

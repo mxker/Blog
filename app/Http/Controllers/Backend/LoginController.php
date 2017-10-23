@@ -13,9 +13,6 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller {
 
-    protected $captcha_id = 'db3de8f0bbb7e83cc74388966f84c94c';
-    protected $private_key = 'c2dcfdc04a51c7568c30ab5eec141535';
-
     public function login(){
         return view('backend.login');
     }
