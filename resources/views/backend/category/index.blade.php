@@ -27,7 +27,7 @@
                                 <td>{{$v['cate_description']}}</td>
                                 <td>
                                     <a href="{{url('backend/category/'.$v["cate_id"]).'/edit'}}">编辑</a>
-                                    <a href="{{url('backend/category/'.$v["cate_id"])}}">删除</a>
+                                    <a href="javascript:;" onclick="delCate({{ $v['cate_id'] }})">删除</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -39,7 +39,7 @@
     </div>
 
     <script>
-        {{--改变分类排序--}}
+        //  改变分类排序
         function changeOrder(obj,cate_id) {
             var cate_order = $(obj).val();
             $.post('{{ url('/backend/category/changeOrder') }}',
@@ -50,6 +50,23 @@
                         }else {
                             layer.alert(data.msg, {icon: 5});
                         }
+            });
+        }
+
+        // 删除分类
+        function delCate(cate_id) {
+            layer.confirm('您确定要删除嘛？', {
+                btn: ['确定','再考虑一下'] //按钮
+            }, function(){
+                $.post("{{url('backend/category/')}}/"+cate_id, {'_token':'{{ csrf_token() }}','_method':'delete', 'cate_id':cate_id},
+                        function (data) {
+                            if(data.status = 1){
+                                location.reload();
+                                layer.alert(data.msg, {icon: 6});
+                            }else {
+                                layer.alert(data.msg, {icon: 5});
+                            }
+                })
             });
         }
     </script>
