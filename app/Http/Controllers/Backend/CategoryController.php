@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
-    protected $translator;
 
     /**
      *  全部分类列表

@@ -343,12 +343,23 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="mail.html">
-                                <div class="badge bg-none pull-right">8</div>
+                        <li class="dropdown show-on-hover active">
+                            <a href="javascript:;" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
                                 <span>文章管理</span>
                             </a>
+                            <ul class="dropdown-menu">
+                                <li class="active">
+                                    <a href="{{ url('backend/article/create') }}">
+                                        <span>添加文章</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('backend/article/create') }}">
+                                        <span>文章列表</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="dropdown show-on-hover">
                             <a href="javascript:;" data-toggle="dropdown">

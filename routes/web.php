@@ -54,8 +54,7 @@ Route::group(['namespace' => 'Backend'], function (){
     Route::get('backend/home/{id}', 'HomeController@index')->middleware('session');
 
     // 文章管理
-    Route::get('backend/article/add', 'articleController@add');
-    Route::get('backend/article/list', 'articleController@articleList');
+    Route::resource('backend/article', 'ArticleController');
 
     // 分类管理
     Route::resource('backend/category', 'CategoryController');
