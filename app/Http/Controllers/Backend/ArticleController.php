@@ -35,13 +35,18 @@ class ArticleController extends Controller
      */
     public function store(){
         $input = Input::except('_token');
+
         $rule = [
             'art_name' => 'required',
             'art_tag' => 'required',
+            'art_content' => 'required',
+            'art_editor' => 'required',
         ];
         $message = [
             'art_name.required' => '文章名称不能为空',
-            'art_title.required' => '文章关键词不能为空',
+            'art_tag.required' => '文章关键词不能为空',
+            'art_editor.required' => '文章作者不能为空',
+            'art_content.required' => '文章内容不能为空',
         ];
         $validator = Validator::make($input,$rule,$message);
         if($validator->passes()){

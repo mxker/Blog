@@ -180,6 +180,9 @@ return [
         // 极验验证码
         Germey\Geetest\GeetestServiceProvider::class,
 
+        // 百度富文本编辑器
+        Stevenyangecho\UEditor\UEditorServiceProvider::class,
+
     ],
 
     /*

@@ -20,7 +20,7 @@
                         <tbody>
                         @foreach($data as $v)
                             <tr>
-                                <td style="align-content: center;">{{$v['art_id']}}</td>
+                                <td>{{$v['art_id']}}</td>
                                 <td>{{$v['art_name']}}</td>
                                 <td>{{$v['art_tag']}}</td>
                                 <td>{{$v['art_editor']}}</td>

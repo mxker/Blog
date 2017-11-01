@@ -355,7 +355,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('backend/article/create') }}">
+                                    <a href="{{ url('backend/article') }}">
                                         <span>文章列表</span>
                                     </a>
                                 </li>
