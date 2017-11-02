@@ -9,12 +9,13 @@
                     <table class="table table-striped responsive" data-sortable="" data-sortable-initialized="true">
                         <thead>
                         <tr>
-                            <th style="width: 100px;">文章ID</th>
-                            <th style="width: 350px;">文章名称</th>
-                            <th style="width: 250px;">关键词</th>
-                            <th style="width: 100px;">作者</th>
+                            <th style="width: 5%;">文章ID</th>
+                            <th style="width: 20%;">文章名称</th>
+                            <th style="width: 15%;">关键词</th>
+                            <th style="width: 5%;">作者</th>
                             <th>文章描述</th>
-                            <th style="width: 50px;">操作</th>
+                            <th style="width: 10%;">文章内容</th>
+                            <th style="width: 5%;">操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -25,6 +26,7 @@
                                 <td>{{$v['art_tag']}}</td>
                                 <td>{{$v['art_editor']}}</td>
                                 <td>{{$v['art_desc']}}</td>
+                                <td><a href="{{url('backend/article/'.$v["art_id"])}}">查看文章详情</a></td>
                                 <td>
                                     <a href="{{url('backend/article/'.$v["art_id"]).'/edit'}}">编辑</a>
                                     <a href="javascript:;" onclick="delart({{ $v['art_id'] }})">删除</a>

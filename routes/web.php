@@ -62,6 +62,17 @@ Route::group(['namespace' => 'Backend'], function (){
 });
 
 
+
+/** ****************Website frontend 路由******************* */
+Route::group(['namespace' => 'Blog'], function (){
+    // 首页
+    Route::get('blog/home','HomeController@index');
+
+    // 文章详情
+    Route::get('blog/article/{id}','HomeController@article');
+});
+
+
 /*** ********************自带Auth路由************************/
 Auth::routes();
 

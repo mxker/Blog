@@ -61,4 +61,13 @@ class ArticleController extends Controller
         }
 
     }
+
+    /**
+     * 文章详情
+     * GET|HEAD backend/article/{article}
+     */
+    public function show($art_id){
+        $artInfo = Article::find($art_id);
+        dd($artInfo);
+    }
 }
