@@ -16,7 +16,7 @@
     <section class="panel">
         <header class="panel-heading"><div class="external-event label label-success ui-draggable" style="position: relative;">添加文章</div></header>
         <div class="panel-body">
-            <form class="form-horizontal bordered-group" role="form" action="{{ url('backend/article') }}" method="post">
+            <form class="form-horizontal bordered-group" role="form" action="{{ url('backend/article') }}" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">文章名称</label>
                     <div class="col-sm-10">
@@ -49,8 +49,8 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">文章图片</label>
                     <div class="col-sm-10">
-                        <input type="file">
-                        {{--<p class="help-block">Example block-level help text here.</p>--}}
+                        <input type="file" name="art_thumb">
+                        <p class="help-block">请上传jpg、jpeg、png等大小不超过2M的图片.</p>
                     </div>
                 </div>
                 <div class="form-group">

@@ -1,436 +1,119 @@
 @extends('layout.blog')
 
 @section('content')
+    <!-- Main -->
+    <div id="main">
 
-    <!-- masonry
-================================================== -->
-    <section id="bricks">
-
-        <div class="row masonry">
-
-            <!-- brick-wrapper -->
-            <div class="bricks-wrapper">
-
-                <div class="grid-sizer"></div>
-
-                <div class="brick entry featured-grid animate-this">
-                    <div class="entry-content">
-                        <div id="featured-post-slider" class="flexslider">
-                            <ul class="slides">
-
-                                <li>
-                                    <div class="featured-post-slide">
-
-                                        <div class="post-background" style="background-image:url('images/thumbs/featured/featured-1.jpg');"></div>
-
-                                        <div class="overlay"></div>
-
-                                        <div class="post-content">
-                                            <ul class="entry-meta">
-                                                <li>September 06, 2016</li>
-                                                <li><a href="#" >Naruto Uzumaki</a></li>
-                                            </ul>
-
-                                            <h1 class="slide-title"><a href="single-standard.html" title="">Minimalism Never Goes Out of Style</a></h1>
-                                        </div>
-
-                                    </div>
-                                </li> <!-- /slide -->
-
-                                <li>
-                                    <div class="featured-post-slide">
-
-                                        <div class="post-background" style="background-image:url('images/thumbs/featured/featured-2.jpg');"></div>
-
-                                        <div class="overlay"></div>
-
-                                        <div class="post-content">
-                                            <ul class="entry-meta">
-                                                <li>August 29, 2016</li>
-                                                <li><a href="#">Sasuke Uchiha</a></li>
-                                            </ul>
-
-                                            <h1 class="slide-title"><a href="single-standard.html" title="">Enhancing Your Designs with Negative Space</a></h1>
-                                        </div>
-
-                                    </div>
-                                </li> <!-- /slide -->
-
-                                <li>
-                                    <div class="featured-post-slide">
-
-                                        <div class="post-background" style="background-image:url('images/thumbs/featured/featured-3.jpg');;"></div>
-
-                                        <div class="overlay"></div>
-
-                                        <div class="post-content">
-                                            <ul class="entry-meta">
-                                                <li>August 27, 2016</li>
-                                                <li><a href="#" class="author">Naruto Uzumaki</a></li>
-                                            </ul>
-
-                                            <h1 class="slide-title"><a href="single-standard.html" title="">Music Album Cover Designs for Inspiration</a></h1>
-                                        </div>
-
-                                    </div>
-                                </li> <!-- end slide -->
-
-                            </ul> <!-- end slides -->
-                        </div> <!-- end featured-post-slider -->
-                    </div> <!-- end entry content -->
-                </div>
-
-                @foreach($data as $key => $value)
-                    <article class="brick entry format-standard animate-this">
-
-                        <div class="entry-thumb">
-                            <a href="{{ url('blog/article/'. $value['art_id']) }}" class="thumb-link">
-                                <img src="{{ asset('blog/images/thumbs/diagonal-building.jpg') }}" alt="building">
-                            </a>
+        <!-- Post -->
+        @if(!empty($articleList))
+            @foreach( $articleList as $key => $value)
+                <article class="post">
+                    <header>
+                        <div class="title">
+                            <h2><a href="#">{{ $value['art_name'] }}</a></h2>
+                            <p>{{ $value['art_tag'] }}</p>
                         </div>
-
-                        <div class="entry-text">
-                            <div class="entry-header">
-
-                                <div class="entry-meta">
-               			<span class="cat-links">
-               				<a href="#">{{ $value['art_editor'] }}</a>
-               				<a href="#">{{ date('Y-m-d H:i', $value['art_time']) }}</a>
-               			</span>
-                                </div>
-
-                                <h1 class="entry-title"><a href="{{ url('blog/article/'. $value['art_id']) }}">{{ $value['art_name'] }}</a></h1>
-
-                            </div>
-                            <div class="entry-excerpt">
-                                {{ $value['art_desc'] }}
-                            </div>
+                        <div class="meta">
+                            <time class="published" datetime="{{ date('M d, Y', $value['art_time']) }}">{{ date('M d, Y', $value['art_time']) }}</time>
+                            <a href="#" class="author"><span class="name">{{ $value['art_editor'] }}</span><img src="{{ asset('blog/images/avatar.jpg') }}" alt="" /></a>
                         </div>
-
-                    </article> <!-- end article -->
-                @endforeach
-
-
-                <article class="brick entry format-standard animate-this">
-
-                    <div class="entry-thumb">
-                        <a href="single-standard.html" class="thumb-link">
-                            <img src="images/thumbs/ferris-wheel.jpg" alt="ferris wheel">
-                        </a>
-                    </div>
-
-                    <div class="entry-text">
-                        <div class="entry-header">
-
-                            <div class="entry-meta">
-               			<span class="cat-links">
-               				<a href="#">Design</a>
-               				<a href="#">UI</a>
-               			</span>
-                            </div>
-
-                            <h1 class="entry-title"><a href="single-standard.html">This Is Another Standard Format Post.</a></h1>
-
-                        </div>
-                        <div class="entry-excerpt">
-                            Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                        </div>
-                    </div>
-
-                </article> <!-- end article -->
-
-                <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
-
-                <!-- format audio here -->
-                {{--<article class="brick entry format-audio animate-this">--}}
-
-                    {{--<div class="entry-thumb">--}}
-                        {{--<a href="single-audio.html" class="thumb-link">--}}
-                            {{--<img src="images/thumbs/concert.jpg" alt="concert">--}}
-                        {{--</a>--}}
-
-                        {{--<div class="audio-wrap">--}}
-                            {{--<audio id="player" src="media/AirReview-Landmarks-02-ChasingCorporate.mp3" width="100%" height="42" controls="controls"></audio>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="entry-text">--}}
-                        {{--<div class="entry-header">--}}
-
-                            {{--<div class="entry-meta">--}}
-               			{{--<span class="cat-links">--}}
-               				{{--<a href="#">Design</a>--}}
-               				{{--<a href="#">Music</a>--}}
-               			{{--</span>--}}
-                            {{--</div>--}}
-
-                            {{--<h1 class="entry-title"><a href="single-audio.html">This Is a Audio Format Post.</a></h1>--}}
-
-                        {{--</div>--}}
-                        {{--<div class="entry-excerpt">--}}
-                            {{--Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                {{--</article> <!-- /article -->--}}
-
-                {{--<article class="brick entry format-quote animate-this" >--}}
-
-                    {{--<div class="entry-thumb">--}}
-                        {{--<blockquote>--}}
-                            {{--<p>Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.</p>--}}
-
-                            {{--<cite>Dieter Rams</cite>--}}
-                        {{--</blockquote>--}}
-                    {{--</div>--}}
-
-                {{--</article> <!-- end article -->--}}
-
-                {{--<article class="brick entry animate-this">--}}
-
-                    {{--<div class="entry-thumb">--}}
-                        {{--<a href="single-standard.html" class="thumb-link">--}}
-                            {{--<img src="images/thumbs/shutterbug.jpg" alt="Shutterbug">--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="entry-text">--}}
-                        {{--<div class="entry-header">--}}
-
-                            {{--<div class="entry-meta">--}}
-               			{{--<span class="cat-links">--}}
-               				{{--<a href="#">Photography</a>--}}
-               				{{--<a href="#">html</a>--}}
-               			{{--</span>--}}
-                            {{--</div>--}}
-
-                            {{--<h1 class="entry-title"><a href="single-standard.html">Photography Skills Can Improve Your Graphic Design.</a></h1>--}}
-
-                        {{--</div>--}}
-                        {{--<div class="entry-excerpt">--}}
-                            {{--Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                {{--</article> <!-- end article -->--}}
-
-                {{--<article class="brick entry animate-this" >--}}
-
-                    {{--<div class="entry-thumb">--}}
-                        {{--<a href="single-standard.html" class="thumb-link">--}}
-                            {{--<img src="images/thumbs/usaf-rocket.jpg" alt="USAF rocket">--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="entry-text">--}}
-                        {{--<div class="entry-header">--}}
-
-                            {{--<div class="entry-meta">--}}
-               			{{--<span class="cat-links">--}}
-               				{{--<a href="#">Branding</a>--}}
-               				{{--<a href="#">Mockup</a>--}}
-               			{{--</span>--}}
-                            {{--</div>--}}
-
-                            {{--<h1 class="entry-title"><a href="single-standard.html">The 10 Golden Rules of Clean Simple Design.</a></h1>--}}
-
-                        {{--</div>--}}
-                        {{--<div class="entry-excerpt">--}}
-                            {{--Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                {{--</article> <!-- end article -->--}}
-
-                {{--<article class="brick entry format-gallery group animate-this">--}}
-
-                    {{--<div class="entry-thumb">--}}
-
-                        {{--<div class="post-slider flexslider">--}}
-                            {{--<ul class="slides">--}}
-                                {{--<li>--}}
-                                    {{--<img src="images/thumbs/gallery/work1.jpg">--}}
-                                {{--</li>--}}
-                                {{--<li>--}}
-                                    {{--<img src="images/thumbs/gallery/work2.jpg">--}}
-                                {{--</li>--}}
-                                {{--<li>--}}
-                                    {{--<img src="images/thumbs/gallery/work3.jpg">--}}
-                                {{--</li>--}}
-                            {{--</ul>--}}
-                        {{--</div>--}}
-
-                    {{--</div>--}}
-
-                    {{--<div class="entry-text">--}}
-                        {{--<div class="entry-header">--}}
-
-                            {{--<div class="entry-meta">--}}
-               			{{--<span class="cat-links">--}}
-               				{{--<a href="#">Branding</a>--}}
-               				{{--<a href="#">Wordpress</a>--}}
-               			{{--</span>--}}
-                            {{--</div>--}}
-
-                            {{--<h1 class="entry-title"><a href="single-gallery.html">Workspace Design Trends and Ideas.</a></h1>--}}
-
-                        {{--</div>--}}
-                        {{--<div class="entry-excerpt">--}}
-                            {{--Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                {{--</article> <!-- end article -->--}}
-
-                {{--<article class="brick entry format-link animate-this">--}}
-
-                    {{--<div class="entry-thumb">--}}
-                        {{--<div class="link-wrap">--}}
-                            {{--<p>Looking for affordable &amp; reliable web hosting? We recommend Dreamhost.</p>--}}
-                            {{--<cite>--}}
-                                {{--<a target="_blank" href="http://www.dreamhost.com/r.cgi?287326">http://www.dreamhost.com</a>--}}
-                            {{--</cite>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                {{--</article> <!-- end article -->--}}
-
-
-                {{--<article class="brick entry animate-this">--}}
-
-                    {{--<div class="entry-thumb">--}}
-                        {{--<a href="single-standard.html" class="thumb-link">--}}
-                            {{--<img src="images/thumbs/diagonal-pattern.jpg" alt="Pattern">--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="entry-text">--}}
-                        {{--<div class="entry-header">--}}
-
-                            {{--<div class="entry-meta">--}}
-               			{{--<span class="cat-links">--}}
-               				{{--<a href="#">Design</a>--}}
-               				{{--<a href="#">UI</a>--}}
-               			{{--</span>--}}
-                            {{--</div>--}}
-
-                            {{--<h1 class="entry-title"><a href="single-standard.html">You Can See Patterns Everywhere.</a></h1>--}}
-
-                        {{--</div>--}}
-                        {{--<div class="entry-excerpt">--}}
-                            {{--Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                {{--</article> <!-- end article -->--}}
-
-                {{--<article class="brick entry format-video animate-this">--}}
-
-                    {{--<div class="entry-thumb video-image">--}}
-                        {{--<a href="http://player.vimeo.com/video/14592941?title=0&amp;byline=0&amp;portrait=0&amp;color=F64B39" data-lity>--}}
-                            {{--<img src="images/thumbs/ottawa-bokeh.jpg" alt="bokeh">--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="entry-text">--}}
-                        {{--<div class="entry-header">--}}
-
-                            {{--<div class="entry-meta">--}}
-               			{{--<span class="cat-links">--}}
-               				{{--<a href="#">Design</a>--}}
-               				{{--<a href="#">Branding</a>--}}
-               			{{--</span>--}}
-                            {{--</div>--}}
-
-                            {{--<h1 class="entry-title"><a href="single-video.html">This Is a Video Post Format.</a></h1>--}}
-
-                        {{--</div>--}}
-                        {{--<div class="entry-excerpt">--}}
-                            {{--Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                {{--</article> <!-- end article -->--}}
-
-                {{--<article class="brick entry animate-this">--}}
-
-                    {{--<div class="entry-thumb">--}}
-                        {{--<a href="single-standard.html" class="thumb-link">--}}
-                            {{--<img src="images/thumbs/lighthouse.jpg" alt="Lighthouse">--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="entry-text">--}}
-                        {{--<div class="entry-header">--}}
-
-                            {{--<div class="entry-meta">--}}
-               			{{--<span class="cat-links">--}}
-               				{{--<a href="#">Photography</a>--}}
-               				{{--<a href="#">Design</a>--}}
-               			{{--</span>--}}
-                            {{--</div>--}}
-
-                            {{--<h1 class="entry-title"><a href="single-standard.html">Breathtaking Photos of Lighthouses.</a></h1>--}}
-
-                        {{--</div>--}}
-                        {{--<div class="entry-excerpt">--}}
-                            {{--Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                {{--</article> <!-- end article -->--}}
-
-                {{--<article class="brick entry animate-this">--}}
-
-                    {{--<div class="entry-thumb">--}}
-                        {{--<a href="single-standard.html" class="thumb-link">--}}
-                            {{--<img src="images/thumbs/liberty.jpg" alt="Liberty">--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="entry-text">--}}
-                        {{--<div class="entry-header">--}}
-
-                            {{--<div class="entry-meta">--}}
-               			{{--<span class="cat-links">--}}
-               				{{--<a href="#">Branding</a>--}}
-               				{{--<a href="#">html</a>--}}
-               			{{--</span>--}}
-                            {{--</div>--}}
-
-                            {{--<h1 class="entry-title"><a href="single-standard.html">Designing With Black and White.</a></h1>--}}
-
-                        {{--</div>--}}
-                        {{--<div class="entry-excerpt">--}}
-                            {{--Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                {{--</article> <!-- end article -->--}}
-
-            </div> <!-- end brick-wrapper -->
-
-        </div> <!-- end row -->
-
-        <div class="row">
-
-            <nav class="pagination">
-                <span class="page-numbers prev inactive">Prev</span>
-                <span class="page-numbers current">1</span>
-                <a href="#" class="page-numbers">2</a>
-                <a href="#" class="page-numbers">3</a>
-                <a href="#" class="page-numbers">4</a>
-                <a href="#" class="page-numbers">5</a>
-                <a href="#" class="page-numbers">6</a>
-                <a href="#" class="page-numbers">7</a>
-                <a href="#" class="page-numbers">8</a>
-                <a href="#" class="page-numbers">9</a>
-                <a href="#" class="page-numbers next">Next</a>
-            </nav>
-
-        </div>
+                    </header>
+                    <a href="{{ url('article/').'/'.$value['art_id'] }}" class="image featured"><img width="840" height="340" src="{{ asset($value['artThumbUrl']) }}" alt="" /></a>
+                    <p>{{ $value['art_desc'] }}</p>
+                    <footer>
+                        <ul class="actions">
+                            <li><a href="{{ url('article/').'/'.$value['art_id'] }}" class="button big">阅读全文</a></li>
+                        </ul>
+                        <ul class="stats">
+                            <li><a href="#">General</a></li>
+                            <li><a href="#" class="icon fa-heart">{{ $value['art_view'] }}</a></li>
+                            <li><a href="#" class="icon fa-comment">128</a></li>
+                        </ul>
+                    </footer>
+                </article>
+            @endforeach
+        @endif
+
+        <!-- Pagination -->
+        <ul class="actions pagination">
+            <li><a href="{{ $page -> previousPageUrl() }}" class="@if($page->currentPage() == 1)disabled @endif button big previous">上一页</a></li>
+            <li><a href="{{ $page -> nextPageUrl() }}" class="@if($page->currentPage() == $page->lastPage())disabled @endif button big next">下一页</a></li>
+        </ul>
+
+    </div>
+
+    <!-- Sidebar -->
+    <section id="sidebar">
+
+        <!-- Intro -->
+        <section id="intro">
+            <a href="#" class="logo"><img src="{{ asset('blog/images/logo.jpg') }}" alt="" /></a>
+            <header>
+                <h2>骑在大象背上的人生</h2>
+                <p>Nothing venture,nothing have. <a href="http://blog.csdn.net/wmlml?ref=toolbar">MXKER CSDN`S BLOG</a></p>
+            </header>
+        </section>
+
+        <!-- Mini Posts -->
+        <section>
+            <div class="mini-posts">
+
+                <!-- Mini Post -->
+                @if(!empty($hotArticle))
+                    @foreach($hotArticle as $key => $value)
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="{{ url('article/').'/'.$value['art_id'] }}">{{ $value['art_name'] }}</a></h3>
+                                <time class="published" datetime="{{ date('Y-m-d', $value['art_time']) }}">{{ date('M d, Y', $value['art_time']) }}</time>
+                                <a href="#" class="author"><img src="blog/images/avatar.jpg" alt="" /></a>
+                            </header>
+                            <a href="{{ url('article/').'/'.$value['art_id'] }}" class="image"><img src="blog/images/hot_0{{ rand(1,4) }}.jpg" alt="" /></a>
+                        </article>
+                    @endforeach
+                @endif
+
+            </div>
+        </section>
+
+        <!-- Posts List -->
+        @if(!empty($markArticle))
+            @foreach($markArticle as $value)
+                <section>
+                    <ul class="posts">
+                        <li>
+                            <article>
+                                <header>
+                                    <h3><a href="{{ url('article/').'/'.$value['art_id'] }}">{{ $value['art_name'] }}</a></h3>
+                                    <time class="published" datetime="{{ date('Y-m-d', $value['art_time']) }}">{{ date('M d, Y', $value['art_time']) }}</time>
+                                </header>
+                                <a href="{{ url('article/').'/'.$value['art_id'] }}" class="image"><img src="blog/images/mark_0{{ rand(1,5) }}.jpg" alt="" /></a>
+                            </article>
+                        </li>
+                    </ul>
+                </section>
+        @endforeach
+    @endif
+
+    <!-- About -->
+        <section class="blurb">
+            <h2>洗脑鸡汤</h2>
+            <p>有志者，事竟成，破釜沉舟，百二秦关终属楚；苦心人，天不负，卧薪尝胆，三千越甲可吞吴。</p>
+            <ul class="actions">
+                <li><a href="https://0x9.me/4SnI8" class="button">新浪微博</a></li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <ul class="icons">
+                <li><a href="https://twitter.com/" class="fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="http://zh-tw.facebook.com/" class="fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="https://github.com/cargic" class="fa-instagram"><span class="label">GitHub</span></a></li>
+                <li><a href="http://blog.csdn.net/wmlml?ref=toolbar" class="fa-rss"><span class="label">CSDN</span></a></li>
+                <li><a href="http://mail.163.com" class="fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <p class="copyright">&copy; Untitled. More Knowledge <a href="http://blog.csdn.net/wmlml?ref=toolbar" target="_blank" title="CSDN">CSDN博客</a>.</p>
+        </section>
 
     </section>
-    <!-- end bricks -->
-
 @endsection
