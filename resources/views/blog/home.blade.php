@@ -52,7 +52,7 @@
             <a href="#" class="logo"><img src="{{ asset('blog/images/logo.jpg') }}" alt="" /></a>
             <header>
                 <h3>骑在大象背上的人生</h3>
-                <p>Nothing venture,nothing have. <a href="http://blog.csdn.net/wmlml?ref=toolbar">MXKER CSDN`S BLOG</a></p>
+                <p>Nothing venture,nothing have. <a href="http://blog.csdn.net/wmlml?ref=toolbar" target="_blank">CSDN BLOG</a></p>
             </header>
         </section>
 
@@ -99,9 +99,9 @@
     <!-- About -->
         <section class="blurb">
             <h2>洗脑鸡汤</h2>
-            <p>有志者，事竟成，破釜沉舟，百二秦关终属楚；苦心人，天不负，卧薪尝胆，三千越甲可吞吴。</p>
+            <p>有志者，事竟成，破釜沉舟，百二秦关终属楚；<br>苦心人，天不负，卧薪尝胆，三千越甲可吞吴。</p>
             <ul class="actions">
-                <li><a href="https://0x9.me/4SnI8" class="button">新浪微博</a></li>
+                <li><a href="https://weibo.com/mxker" target="_blank" class="button">新浪微博</a></li>
             </ul>
         </section>
 
