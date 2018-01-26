@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="{{ asset('blog/assets/css/main.css') }}" />
     {{--<!--[if lte IE 9]><link rel="stylesheet" href="blog/assets/css/ie9.css" /><![endif]-->--}}
     {{--<!--[if lte IE 8]><link rel="stylesheet" href="blog/assets/css/ie8.css" /><![endif]-->--}}
+
+    <style>
+        #canvas {
+            position: absolute;
+            width: 410px;
+            height: 180px;
+            z-index: -1;
+            /*top: 0;*/
+            /*left: 0;*/
+            bottom: 0;
+            right: 0;
+            cursor: none;
+            top: 249px;
+            left: 195px;
+        }
+    </style>
 </head>
 <body>
 

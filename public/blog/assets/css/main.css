@@ -3275,13 +3275,15 @@
 			width: 4.5em;
 		}
 
-	#intro header h2 {
-		font-size: 2em;
+	#intro header h3 {
+		font-size: 1.8em;
 		font-weight: 900;
+		color: #FFFFFF;
 	}
 
 	#intro header p {
 		font-size: 0.8em;
+		color: #FFFFFF;
 	}
 
 	@media screen and (max-width: 1280px) {

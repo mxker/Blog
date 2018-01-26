@@ -10,38 +10,42 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Route;
 
 /** ****************Website backend 路由******************* */
+Route::domain('admin.blog.net')->group(function (){
 
-Route::group(['namespace' => 'Backend'], function (){
+    Route::group(['namespace' => 'Backend'], function (){
 
-    // 登录注册
-    Route::get('backend/login', 'LoginController@login');
-    Route::post('backend/login/check', 'LoginController@checkLogin');
-    Route::any('backend/register', 'LoginController@register');
-    Route::get('backend/logout', 'LoginController@logout');
-    Route::get('backend/code', 'LoginController@code');
+        // 登录注册
+        Route::get('/', 'LoginController@login');
+        Route::post('backend/login/check', 'LoginController@checkLogin');
+        Route::any('backend/register', 'LoginController@register');
+        Route::get('backend/logout', 'LoginController@logout');
+        Route::get('backend/code', 'LoginController@code');
 
-    // seesion中间件验证
-    Route::get('backend/home/{id}', 'HomeController@index')->middleware('session');
+        // seesion中间件验证
+        Route::get('backend/home/{id}', 'HomeController@index')->middleware('session');
 
-    // 文章管理
-    Route::resource('backend/article', 'ArticleController');
+        // 文章管理
+        Route::resource('backend/article', 'ArticleController');
 
-    // 分类管理
-    Route::resource('backend/category', 'CategoryController');
-    Route::any('backend/category/changeOrder', 'CategoryController@changeOrder');
+        // 分类管理
+        Route::resource('backend/category', 'CategoryController');
+        Route::any('backend/category/changeOrder', 'CategoryController@changeOrder');
+    });
 });
 
 
-
 /** ****************Website frontend 路由******************* */
-Route::group(['namespace' => 'Blog'], function (){
-    // 首页
-    Route::get('/','HomeController@index');
+Route::domain('blog.net')->group(function (){
+    Route::group(['namespace' => 'Blog'], function (){
+        // 首页
+        Route::get('/','HomeController@index');
 
-    // 文章详情
-    Route::get('article/{id}','ArticleController@index');
+        // 文章详情
+        Route::get('article/{id}','ArticleController@index');
+    });
 });
 
 
