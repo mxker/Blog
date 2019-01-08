@@ -38,15 +38,15 @@ Route::domain(env('ADMIN_DOMAIN'))->group(function (){
 
 
 /** ****************Website frontend 路由******************* */
-Route::domain(env('WEB_DOMAIN'))->group(function (){
-    Route::group(['namespace' => 'Blog'], function (){
-        // 首页
-        Route::get('/','HomeController@index');
 
-        // 文章详情
-        Route::get('article/{id}','ArticleController@index');
-    });
+Route::group(['domain'=>env('WEB_DOMAIN'),'namespace' => 'Blog'], function (){
+    // 首页
+    Route::get('/','HomeController@index');
+
+    // 文章详情
+    Route::get('article/{id}','ArticleController@index');
 });
+
 
 
 /*** ********************自带Auth路由************************/
