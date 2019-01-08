@@ -38,7 +38,7 @@ Route::domain('admin.blog.net')->group(function (){
 
 
 /** ****************Website frontend 路由******************* */
-Route::domain('blog.mxker.cn')->group(function (){
+Route::domain('blog.net')->group(function (){
     Route::group(['namespace' => 'Blog'], function (){
         // 首页
         Route::get('/','HomeController@index');

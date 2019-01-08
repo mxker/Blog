@@ -13,7 +13,10 @@ use App\Models\UserModel;
 class HomeController extends Controller {
 
     public function index($id){
-        $userInfo = UserModel::where(['admin_id' => $id]) -> first() -> toArray();
-        return view('backend.home',['userInfo' => $userInfo]);
+        $userInfo = UserModel::query()->where(['admin_id' => $id])->first()-> toArray();
+        return view('backend.home',[
+            'activeTab' => 'home',
+            'userInfo' => $userInfo
+        ]);
     }
 }

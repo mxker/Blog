@@ -17,12 +17,16 @@ class CategoryController extends Controller
      */
     public function index(){
         $categoryList = (new Category()) -> tree();
-        return view('backend.category.index')->with('data', $categoryList);
+
+        return view('backend.category.index',[
+            'activeTab' => 'category',
+            'data' => $categoryList
+        ]);
     }
 
     public function changeOrder(){
         $input = Input::all();
-        $cate = Category::find($input['cate_id']);
+        $cate = Category::query()->find($input['cate_id']);
         $cate->cate_order = $input['cate_order'];
         $result = $cate->update();
         $data = [];
@@ -42,8 +46,12 @@ class CategoryController extends Controller
      * GET|HEAD backend/category/create
      */
     public function create(){
-        $data = Category::where('cate_pid', 0)->get();
-        return view('backend.category.add',compact('data'));
+        $data = Category::query()->where('cate_pid', 0)->get();
+
+        return view('backend.category.add',[
+            'activeTab' => 'category',
+            'data' => $data
+        ]);
     }
 
     /**
@@ -79,9 +87,13 @@ class CategoryController extends Controller
      * GET|HEAD backend/category/{category}/edit
      */
     public function edit($cate_id){
-        $cateInfo = Category::find($cate_id);
-        $data = Category::where('cate_pid', 0)->get();
-        return view('backend.category.edit',compact('cateInfo','data'));
+        $cateInfo = Category::query()->find($cate_id);
+        $data = Category::query()->where('cate_pid', 0)->get();
+
+        return view('backend.category.edit',[
+            'activeTab' => 'category.edit',
+            'cateInfo' => $data
+        ]);
     }
 
     /**
@@ -90,7 +102,7 @@ class CategoryController extends Controller
      */
     public function update($cate_id){
         $update = Input::except('_method','_token');
-        $result = Category::where('cate_id', $cate_id) -> update($update);
+        $result = Category::query()->where('cate_id', $cate_id) -> update($update);
         if($result){
             return redirect('/backend/category');
         }else{

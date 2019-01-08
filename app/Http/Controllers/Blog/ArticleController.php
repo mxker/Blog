@@ -12,9 +12,9 @@ class ArticleController extends Controller
     public function index($id){
         $data = Article::all() -> toArray();
 
-        $articleInfo = Article::find($id);
+        $articleInfo = Article::query()->find($id);
         $articleViews = $articleInfo -> art_view + 1;
-        Article::where('art_id', $id) -> update(['art_view'=>$articleViews]);
+        Article::query()->where('art_id', $id) -> update(['art_view'=>$articleViews]);
 
         if($articleInfo['art_thumb']){
             $artThumbUrl = Storage::url($articleInfo['art_thumb']);

@@ -1,4 +1,4 @@
-@extends('layout.base')
+@extends('layouts.backend')
 
 @section('content')
 <div class="col-lg-12" style="padding-top: 20px;">

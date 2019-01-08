@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Storage;
 class HomeController extends Controller
 {
     public function index(){
-        $articlePageList = Article::orderBy('art_time', 'asc') -> Paginate(3);
+        $articlePageList = Article::query()
+            ->orderBy('art_time', 'desc')
+            ->Paginate(3);
         $articleList = $articlePageList ->items();
         if ($articleList){
             foreach ($articleList as $key => $value){
@@ -23,9 +25,10 @@ class HomeController extends Controller
             }
         }
 
-        $hotArticle = Article::where(['is_hot' => 1]) -> limit(3) -> get() -> toArray();
-        $markArticle = Article::where(['is_mark' => 1]) -> limit(3) -> get() -> toArray();
+        $hotArticle = Article::query()->where(['is_hot' => 1])->limit(3)->get()->toArray();
+        $markArticle = Article::query()->where(['is_mark' => 1])->limit(3)->get()-> toArray();
 
-        return view('blog.home', compact('hotArticle', 'markArticle', 'articleList')) -> with('page', $articlePageList);
+        return view('blog.home', compact('hotArticle', 'markArticle', 'articleList'))
+            ->with('page', $articlePageList);
     }
 }

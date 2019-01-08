@@ -13,29 +13,29 @@ use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller
 {
-    /**
-     *  全部文章列表
-     *  GET|HEAD backend/article
-     */
     public function index(){
-        $articleList = Article::all();
-        return view('backend.article.index')->with('data',$articleList);
+
+        $paginate = Article::query()->paginate(10);
+
+        return view('backend.article.index',[
+            'activeTab' => 'article',
+            'data' => $this->parsePage($paginate->items()),
+            'page' => $paginate
+        ]);
     }
 
-    /**
-     * 创建文章
-     * GET|HEAD backend/article/create
-     */
     public function create(){
+
         $data = Category::all();
-        return view('backend.article.add',compact('data'));
+
+        return view('backend.article.add',[
+            'activeTab' => 'article.add',
+            'data' => $data
+        ]);
     }
 
-    /**
-     *  添加文章提交
-     *  POST  backend/article
-     */
     public function store(Request $request){
+
         $input = Input::except('_token');
 
         $rule = [
@@ -75,25 +75,24 @@ class ArticleController extends Controller
 
     }
 
-    /**
-     * 编辑文章
-     * GET|HEAD backend/category/{category}/edit
-     */
-    public function edit($art_id){
-        $articleInfo = Article::find($art_id) -> toArray();
+    public function edit($artId){
+
+        $articleInfo = Article::query()->find($artId) -> toArray();
 
         $artThumbUrl = Storage::url($articleInfo['art_thumb']);
         $articleInfo['artThumbUrl'] = $artThumbUrl;
 
-        $data = Category::where('cate_pid', 0)->get();
-        return view('backend.article.edit',compact('articleInfo', 'data'));
+        $category = Category::query()->where('cate_pid', 0)->get();
+
+        return view('backend.article.edit',[
+            'activeTab' => 'article',
+            'articleInfo' => $articleInfo,
+            'category' => $category
+        ]);
     }
 
-    /**
-     *  更新文章
-     * PUT|PATCH backend/update/{update}
-     */
-    public function update($art_id, Request $request){
+    public function update($artId, Request $request){
+
         $update = Input::except('_method','_token');
         if(!empty($update['art_thumb'])){
             $suffix = substr($_FILES['art_thumb']['name'],strripos($_FILES['art_thumb']['name'],'.'));
@@ -104,7 +103,8 @@ class ArticleController extends Controller
         }
         $update['update_time'] = strtotime(Carbon::now());
 
-        $result = Article::where('art_id', $art_id) -> update($update);
+        $result = Article::query()->where('art_id', $artId) -> update($update);
+
         if($result){
             return redirect('/backend/article');
         }else{
@@ -112,12 +112,14 @@ class ArticleController extends Controller
         }
     }
 
-    /**
-     * 文章详情
-     * GET|HEAD backend/article/{article}
-     */
-    public function show($art_id){
-        $artInfo = Article::find($art_id);
+    public function show($artId){
+        $artInfo = Article::find($artId);
         dd($artInfo);
+    }
+
+
+    public function destroy($artId)
+    {
+
     }
 }

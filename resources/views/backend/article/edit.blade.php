@@ -1,4 +1,4 @@
-@extends('layout.base')
+@extends('layouts.backend')
 
 @section('content')
     <div class="col-lg-12" style="padding-top: 20px;">
@@ -36,7 +36,7 @@
                         <div class="col-sm-10">
                             <select class="form-control input-rounded" name="cate_id">
                                 <option value="0">请选择分类</option>
-                                @foreach($data as $v)
+                                @foreach($category as $v)
                                     <option value="{{$v->cate_id}}"  @if($v->cate_id == $articleInfo['cate_id'])selected @endif >{{$v->cate_name}}</option>
                                 @endforeach
                             </select>
