@@ -13,7 +13,7 @@
 use Illuminate\Support\Facades\Route;
 
 /** ****************Website backend 路由******************* */
-Route::domain('admin.blog.net')->group(function (){
+Route::domain(env('ADMIN_DOMAIN'))->group(function (){
 
     Route::group(['namespace' => 'Backend'], function (){
 
@@ -38,7 +38,7 @@ Route::domain('admin.blog.net')->group(function (){
 
 
 /** ****************Website frontend 路由******************* */
-Route::domain('blog.net')->group(function (){
+Route::domain(env('WEB_DOMAIN'))->group(function (){
     Route::group(['namespace' => 'Blog'], function (){
         // 首页
         Route::get('/','HomeController@index');
