@@ -1,4 +1,4 @@
-@extends('layout.blog')
+@extends('layouts.blog')
 
 @section('content')
     <canvas id="canvas"></canvas>

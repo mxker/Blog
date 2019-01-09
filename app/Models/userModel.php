@@ -16,9 +16,7 @@ class UserModel extends Model {
 
     protected $table = 'admin';
 
-//    protected $fillable = ['admin_name', 'admin_password']; // 定义批量操作名
-
-    public $timestamps = false; // 关闭更新和修改时间自动插入（create_at 和 update_at）
+    public $timestamps = false;
 
     /**
      * 用户名和密码验证
@@ -28,7 +26,7 @@ class UserModel extends Model {
      * @return bool
      */
     public static function check($request,$username, $password){
-        $userInfo = UserModel::where(['admin_name' => $username]) -> first();
+        $userInfo = UserModel::query()->where(['admin_name' => $username]) -> first();
         if($userInfo){
             if($password == decrypt($userInfo->admin_password)){
                 $request -> session()-> put('userInfo',[
@@ -64,7 +62,7 @@ class UserModel extends Model {
      * @return mixed
      */
     public static function insert($data){
-        $id = UserModel::insertGetId([
+        $id = UserModel::query()->insertGetId([
             'admin_name'        => $data['admin_name'],
             'admin_password'    => encrypt($data['admin_password']),
             'admin_email'       => $data['admin_email'],
@@ -80,7 +78,7 @@ class UserModel extends Model {
      * @return array
      */
     public static function tree(){
-        $cate = self::get() -> toArray();
+        $cate = self::query()->get() -> toArray();
         $tree = self::sortOut($cate);
 
         return $tree;
