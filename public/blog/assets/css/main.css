@@ -1673,10 +1673,15 @@
 
 	.blurb h3 {
 		font-size: 0.7em;
+		color: #ffffff;
 	}
 
 	.blurb p {
 		font-size: 0.9em;
+		color: #ffffff;
+	}
+	.blurb ul li a{
+		color: #ffffff !important;
 	}
 
 /* Box */
@@ -2398,7 +2403,15 @@
 					padding-top: 0;
 				}
 
-			ul.posts article {
+				ul.posts li h3{
+					color: #ffffff;
+				}
+
+				ul.posts li a{
+					color: #ffffff;
+				}
+
+ul.posts article {
 				display: -moz-flex;
 				display: -webkit-flex;
 				display: -ms-flex;
@@ -3256,10 +3269,9 @@
 	}
 
 		#intro .logo:before {
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' viewBox='0 0 100 100' preserveAspectRatio='none' zoomAndPan='disable'%3E%3Cpolygon points='0,0 100,0 100,25 50,0 0,25' style='fill:%23f4f4f4' /%3E%3Cpolygon points='0,100 100,100 100,75 50,100 0,75' style='fill:%23f4f4f4' /%3E%3C/svg%3E");
 			background-position: top left;
 			background-repeat: no-repeat;
-			background-size: 100% 100%;
+			background-size: 102% 102%;
 			content: '';
 			display: block;
 			height: 100%;
@@ -3268,7 +3280,6 @@
 			top: 0;
 			width: 100%;
 		}
-
 		#intro .logo img {
 			display: block;
 			margin-left: -0.25em;
@@ -3335,12 +3346,16 @@
 	}
 
 	#footer .copyright {
-		color: #aaaaaa;
+		color: #ffffff;
 		font-family: "Raleway", Helvetica, sans-serif;
 		font-size: 0.5em;
 		font-weight: 400;
 		letter-spacing: 0.25em;
 		text-transform: uppercase;
+	}
+
+	.font-white{
+		color: #ffffff !important;
 	}
 
 /* Menu */

@@ -11,17 +11,11 @@
 
     <style>
         #canvas {
-            position: absolute;
-            width: 410px;
-            height: 180px;
+            position: fixed;
             z-index: -1;
-            /*top: 0;*/
-            /*left: 0;*/
             bottom: 0;
             right: 0;
             cursor: none;
-            top: 249px;
-            left: 195px;
         }
     </style>
 </head>
@@ -44,8 +38,8 @@
             <ul>
                 <li class="search">
                     <a class="fa-search" href="#search">Search</a>
-                    <form id="search" method="get" action="#">
-                        <input type="text" name="query" placeholder="Search" />
+                    <form id="search" method="get" action="{{ url('/') }}">
+                        <input type="text" name="keywords" placeholder="Search" />
                     </form>
                 </li>
                 <li class="menu">
@@ -70,26 +64,8 @@
             <ul class="links">
                 <li>
                     <a href="#">
-                        <h3>Lorem ipsum</h3>
-                        <p>Feugiat tempus veroeros dolor</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Dolor sit amet</h3>
-                        <p>Sed vitae justo condimentum</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Feugiat veroeros</h3>
-                        <p>Phasellus sed ultricies mi congue</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <h3>Etiam sed consequat</h3>
-                        <p>Porta lectus amet ultricies</p>
+                        <h3>友情链接</h3>
+                        <p>骑在大象背上的人生</p>
                     </a>
                 </li>
             </ul>

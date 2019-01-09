@@ -12,7 +12,7 @@
                 <article class="post">
                     <header>
                         <div class="title">
-                            <h2><a href="#">{{ $value['art_name'] }}</a></h2>
+                            <h2><a href="{{ url('article/').'/'.$value['art_id'] }}">{{ $value['art_name'] }}</a></h2>
                             <p>{{ $value['art_tag'] }}</p>
                         </div>
                         <div class="meta">
@@ -20,7 +20,9 @@
                             <a href="#" class="author"><span class="name">{{ $value['art_editor'] }}</span><img src="{{ asset('blog/images/avatar.jpg') }}" alt="" /></a>
                         </div>
                     </header>
-                    <a href="{{ url('article/').'/'.$value['art_id'] }}" class="image featured"><img width="840" height="340" src="{{ asset($value['artThumbUrl']) }}" alt="" /></a>
+                    <a href="{{ url('article/').'/'.$value['art_id'] }}" class="image featured">
+                        <img width="840" height="340" src="{{ asset($value['artThumbUrl']) }}" alt="" />
+                    </a>
                     <p>{{ $value['art_desc'] }}</p>
                     <footer>
                         <ul class="actions">
@@ -38,8 +40,8 @@
 
         <!-- Pagination -->
         <ul class="actions pagination">
-            <li><a href="{{ $page -> previousPageUrl() }}" class="@if($page->currentPage() == 1)disabled @endif button big previous">上一页</a></li>
-            <li><a href="{{ $page -> nextPageUrl() }}" class="@if($page->currentPage() == $page->lastPage())disabled @endif button big next">下一页</a></li>
+            <li><a href="{{ $page -> previousPageUrl() }}" class="@if($page->currentPage() == 1)disabled @endif button big previous font-white">上一页</a></li>
+            <li><a href="{{ $page -> nextPageUrl() }}" class="@if($page->currentPage() == $page->lastPage())disabled @endif button big next font-white">下一页</a></li>
         </ul>
 
     </div>
@@ -49,7 +51,7 @@
 
         <!-- Intro -->
         <section id="intro" style="margin-left: 15px;">
-            <a href="#" class="logo"><img src="{{ asset('blog/images/logo.jpg') }}" alt="" /></a>
+            <a href="#" class="logo"><img src="{{ asset('blog/images/avatar_logo.png') }}" alt="" /></a>
             <header>
                 <h3>骑在大象背上的人生</h3>
                 <p>Nothing venture,nothing have. <a href="http://blog.csdn.net/wmlml?ref=toolbar" target="_blank">CSDN BLOG</a></p>
@@ -69,7 +71,7 @@
                                 <time class="published" datetime="{{ date('Y-m-d', $value['art_time']) }}">{{ date('M d, Y', $value['art_time']) }}</time>
                                 <a href="#" class="author"><img src="blog/images/avatar.jpg" alt="" /></a>
                             </header>
-                            <a href="{{ url('article/').'/'.$value['art_id'] }}" class="image"><img src="blog/images/hot_0{{ rand(1,4) }}.jpg" alt="" /></a>
+                            <a href="{{ url('article/').'/'.$value['art_id'] }}" class="image"><img width="351" height="176" src="blog/images/hot_0{{ rand(1,9) }}.jpg" alt="" /></a>
                         </article>
                     @endforeach
                 @endif
@@ -88,7 +90,7 @@
                                     <h3><a href="{{ url('article/').'/'.$value['art_id'] }}">{{ $value['art_name'] }}</a></h3>
                                     <time class="published" datetime="{{ date('Y-m-d', $value['art_time']) }}">{{ date('M d, Y', $value['art_time']) }}</time>
                                 </header>
-                                <a href="{{ url('article/').'/'.$value['art_id'] }}" class="image"><img src="blog/images/mark_0{{ rand(1,5) }}.jpg" alt="" /></a>
+                                <a href="{{ url('article/').'/'.$value['art_id'] }}" class="image"><img width="51" height="51" src="blog/images/mark_0{{ rand(1,9) }}.jpg" alt="" /></a>
                             </article>
                         </li>
                     </ul>
@@ -122,9 +124,44 @@
 
     <script src="http://fengshayun.top/Scripts/hovertreewelcome.js"></script>
     <script type="text/javascript">
-        var Stats = function () { var e = Date.now(), t = e, i = 0, n = 1 / 0, r = 0, s = 0, o = 1 / 0, a = 0, l = 0, h = 0, c = document.createElement("div"); c.id = "stats", c.addEventListener("mousedown", function (e) { e.preventDefault(), v(++h % 2) }, !1), c.style.cssText = "width:80px;opacity:0.9;cursor:pointer"; var u = document.createElement("div"); u.id = "fps", u.style.cssText = "padding:0 0 3px 3px;text-align:left;background-color:#002", c.appendChild(u); var d = document.createElement("div"); d.id = "fpsText", d.style.cssText = "color:#0ff;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px", d.innerHTML = "FPS", u.appendChild(d); var p = document.createElement("div"); for (p.id = "fpsGraph", p.style.cssText = "position:relative;width:74px;height:30px;background-color:#0ff", u.appendChild(p) ; 74 > p.children.length;) { var f = document.createElement("span"); f.style.cssText = "width:1px;height:30px;float:left;background-color:#113", p.appendChild(f) } var m = document.createElement("div"); m.id = "ms", m.style.cssText = "padding:0 0 3px 3px;text-align:left;background-color:#020;display:none", c.appendChild(m); var g = document.createElement("div"); g.id = "msText", g.style.cssText = "color:#0f0;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px", g.innerHTML = "MS", m.appendChild(g); var y = document.createElement("div"); for (y.id = "msGraph", y.style.cssText = "position:relative;width:74px;height:30px;background-color:#0f0", m.appendChild(y) ; 74 > y.children.length;) { var f = document.createElement("span"); f.style.cssText = "width:1px;height:30px;float:left;background-color:#131", y.appendChild(f) } var v = function (e) { switch (h = e) { case 0: u.style.display = "block", m.style.display = "none"; break; case 1: u.style.display = "none", m.style.display = "block" } }, b = function (e, t) { var i = e.appendChild(e.firstChild); i.style.height = t + "px" }; return { REVISION: 11, domElement: c, setMode: v, begin: function () { e = Date.now() }, end: function () { var h = Date.now(); return i = h - e, n = Math.min(n, i), r = Math.max(r, i), g.textContent = i + " MS (" + n + "-" + r + ")", b(y, Math.min(30, 30 - 30 * (i / 200))), l++, h > t + 1e3 && (s = Math.round(1e3 * l / (h - t)), o = Math.min(o, s), a = Math.max(a, s), d.textContent = s + " FPS (" + o + "-" + a + ")", b(p, Math.min(30, 30 - 30 * (s / 100))), t = h, l = 0), h }, update: function () { e = this.end() } } };
-        // );
-
+        var Stats = function () {
+            var e = Date.now(), t = e, i = 0, n = 1 / 0, r = 0, s = 0, o = 1 / 0, a = 0, l = 0, h = 0, c = document.createElement("div");
+            c.id = "stats", c.addEventListener("mousedown", function (e) { e.preventDefault(), v(++h % 2) }, !1), c.style.cssText = "width:80px;opacity:0.9;cursor:pointer";
+            var u = document.createElement("div"); u.id = "fps", u.style.cssText = "padding:0 0 3px 3px;text-align:left;background-color:#002", c.appendChild(u);
+            var d = document.createElement("div"); d.id = "fpsText", d.style.cssText = "color:#0ff;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px", d.innerHTML = "FPS", u.appendChild(d);
+            var p = document.createElement("div");
+            for (p.id = "fpsGraph", p.style.cssText = "position:relative;width:74px;height:30px;background-color:#0ff", u.appendChild(p) ; 74 > p.children.length;) {
+                var f = document.createElement("span"); f.style.cssText = "width:1px;height:30px;float:left;background-color:#113", p.appendChild(f) }
+                var m = document.createElement("div");
+                m.id = "ms", m.style.cssText = "padding:0 0 3px 3px;text-align:left;background-color:#020;display:none", c.appendChild(m);
+                var g = document.createElement("div");
+                g.id = "msText", g.style.cssText = "color:#0f0;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px", g.innerHTML = "MS", m.appendChild(g);
+                var y = document.createElement("div");
+                for (y.id = "msGraph", y.style.cssText = "position:relative;width:74px;height:30px;background-color:#0f0", m.appendChild(y) ; 74 > y.children.length;) {
+                    var f = document.createElement("span");
+                    f.style.cssText = "width:1px;height:30px;float:left;background-color:#131", y.appendChild(f)
+                }
+                var v = function (e) {
+                    switch (h = e) {
+                        case 0: u.style.display = "block", m.style.display = "none";
+                        break;
+                        case 1: u.style.display = "none", m.style.display = "block"
+                    }
+                },
+                    b = function (e, t) {
+                        var i = e.appendChild(e.firstChild); i.style.height = t + "px"
+                    };
+                return {
+                    REVISION: 11, domElement: c, setMode: v,
+                    begin: function () { e = Date.now() },
+                    end: function () {
+                        var h = Date.now();
+                        return i = h - e, n = Math.min(n, i), r = Math.max(r, i), g.textContent = i + " MS (" + n + "-" + r + ")",
+                            b(y, Math.min(30, 30 - 30 * (i / 200))), l++, h > t + 1e3 && (s = Math.round(1e3 * l / (h - t)), o = Math.min(o, s), a = Math.max(a, s), d.textContent = s + " FPS (" + o + "-" + a + ")",
+                            b(p, Math.min(30, 30 - 30 * (s / 100))), t = h, l = 0), h },
+                    update: function () { e = this.end() }
+                }
+        };
 
         ; (function (window) {
 
@@ -301,9 +338,10 @@
 
                 ctx.globalCompositeOperation = 'source-over';
                 ctx.fillStyle = 'rgba(8,5,16,0.4)';
+                //ctx.fillStyle = 'rgba(244,244,244,1)';
                 ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
                 ctx.globalCompositeOperation = 'lighter';
-                ctx.strokeStyle = 'hsla(' + Math.round(hue.update()) + ',90%,50%,0.25)';
+                ctx.strokeStyle = 'hsla(' + Math.round(hue.update()) + ',90%,50%,0.8)';
                 ctx.lineWidth = 1;
 
                 if (ctx.frame % 60 == 0) {
@@ -324,6 +362,8 @@
             function resize() {
                 ctx.canvas.width = window.innerWidth;
                 ctx.canvas.height = window.innerHeight;
+                // ctx.canvas.width = document.body.scrollWidth;
+                // ctx.canvas.height = document.body.scrollHeight;
             }
 
             function start() {
@@ -430,16 +470,12 @@
                 ctx.running = true;
                 ctx.frame = 1;
 
-
-
                 hue = new Oscillator({
                     phase: Math.random() * Math.TWO_PI,
                     amplitude: 85,
                     frequency: 0.0015,
                     offset: 285
                 });
-
-
 
                 document.addEventListener('mousemove', init);
                 document.addEventListener('touchstart', init);

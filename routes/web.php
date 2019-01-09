@@ -41,6 +41,8 @@ Route::group(['domain'=>env('WEB_DOMAIN'),'namespace' => 'Blog'], function (){
     Route::get('/','HomeController@index');
 
     Route::get('article/{id}','ArticleController@index');
+
+    Route::post('search','ArticleController@search');
 });
 
 

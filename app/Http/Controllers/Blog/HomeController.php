@@ -9,17 +9,27 @@ use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
-    public function index(){
-        $articlePageList = Article::query()
-            ->orderBy('art_time', 'desc')
-            ->Paginate(3);
+    public function index(Request $request){
+
+        $keywords = $request->input('keywords');
+        if( !empty($keywords) ){
+            $articlePageList = Article::query()
+                ->where('art_name','like','%'.$keywords.'%')
+                ->orderBy('art_time', 'desc')
+                ->Paginate(3);
+        }else{
+            $articlePageList = Article::query()
+                ->orderBy('art_time', 'desc')
+                ->Paginate(3);
+        }
+
         $articleList = $articlePageList ->items();
         if ($articleList){
             foreach ($articleList as $key => $value){
                 if($value['art_thumb']){
                     $artThumbUrl = Storage::url($value['art_thumb']);
                 }else{
-                    $artThumbUrl = 'blog/images/article_0'. rand(1,4) .'.jpg';
+                    $artThumbUrl = 'blog/images/article_0'. rand(1,9) .'.jpg';
                 }
                 $articleList[$key]['artThumbUrl'] = $artThumbUrl;
             }
