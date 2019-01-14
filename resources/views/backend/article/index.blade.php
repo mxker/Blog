@@ -73,6 +73,8 @@
                         <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 145px;">文章分类</th>
                         <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Average Grade: activate to sort column ascending" style="width: 194px;">关键词</th>
                         <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Curriculum / Occupation: activate to sort column ascending" style="width: 145px;">作者</th>
+                        <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Curriculum / Occupation: activate to sort column ascending" style="width: 45px;">热搜</th>
+                        <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Curriculum / Occupation: activate to sort column ascending" style="width: 45px;">推荐</th>
                         <th class="sorting" tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 155px;">添加时间</th>
                         <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 205px;">操作</th>
                     </tr>
@@ -88,6 +90,8 @@
                             <td>{{$v['cate_name']}}</td>
                             <td>{{$v['art_tag']}}</td>
                             <td>{{$v['art_editor']}}</td>
+                            <td>{{ $v['is_hot'] == 1 ? '是':'否' }}</td>
+                            <td>{{ $v['is_mark'] == 1 ? '是':'否' }}</td>
                             <td>{{ date('Y-m-d H:i:s',$v['art_time']) }}</td>
                             <td>
                                 <a href="{{ url('backend/article/'.$v['art_id'].'/edit') }}" class="btn btn-secondary btn-sm btn-icon icon-left">

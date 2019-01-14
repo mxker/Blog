@@ -81,6 +81,30 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         </div>
                     </div>
+
+                    <div class="form-group-separator"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="field-1">热搜文章</label>
+
+                        <div class="col-xs-2" style="display: flex;align-items: center; vertical-align: middle;">
+                            <input type="checkbox" name="is_hot" @if($articleInfo['is_hot'] == 1)checked @endif class="iswitch-lg iswitch-red">
+                        </div>
+                        <label class="col-sm-2 control-label" style="color: red;"
+                               for="field-1">注：默认状态为关闭，红色开启</label>
+                    </div>
+
+                    <div class="form-group-separator"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="field-1">推荐文章</label>
+
+                        <div class="col-xs-2" style="display: flex;align-items: center; vertical-align: middle;">
+                            <input type="checkbox" name="is_mark" @if($articleInfo['is_mark'] == 1)checked @endif class="iswitch-lg iswitch-red">
+                        </div>
+                        <label class="col-sm-2 control-label" style="color: red;"
+                               for="field-1">注：默认状态为关闭，红色开启</label>
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label"></label>
                         <div class="col-sm-10"><button class="btn btn-success btn-rounded" type="submit">编辑文章</button></div>

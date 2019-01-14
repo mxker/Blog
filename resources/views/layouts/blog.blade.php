@@ -32,7 +32,7 @@
                 <li><a href="{{ url('/') }}">首页</a></li>
                 @if( !empty($category) )
                     @foreach($category as $cate)
-                        <li><a href="{{ url('/') }}">{{ $cate->cate_name }}</a></li>
+                        <li><a href="{{ url('?cate_id=').$cate->cate_id }}">{{ $cate->cate_name }}</a></li>
                     @endforeach
                 @endif
             </ul>

@@ -103,6 +103,13 @@ class ArticleController extends Controller
         }
         $update['update_time'] = strtotime(Carbon::now());
 
+        if( isset($update['is_hot']) ){
+            $update['is_hot'] = 1;
+        }
+        if( isset($update['is_mark']) ){
+            $update['is_mark'] = 1;
+        }
+
         $result = Article::query()->where('art_id', $artId) -> update($update);
 
         if($result){

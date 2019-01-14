@@ -40,8 +40,16 @@
 
         <!-- Pagination -->
         <ul class="actions pagination">
-            <li><a href="{{ $page -> previousPageUrl() }}" class="@if($page->currentPage() == 1)disabled @endif button big previous font-white">上一页</a></li>
-            <li><a href="{{ $page -> nextPageUrl() }}" class="@if($page->currentPage() == $page->lastPage())disabled @endif button big next font-white">下一页</a></li>
+            <li>
+                <a href="{{ $page->previousPageUrl().'&keywords='.$keywords.'&cate_id='.$cate_id }}" class="@if($page->currentPage() == 1)disabled @endif button big previous font-white">
+                    上一页
+                </a>
+            </li>
+            <li>
+                <a href="{{ $page->nextPageUrl().'&keywords='.$keywords.'&cate_id='.$cate_id }}" class="@if($page->currentPage() == $page->lastPage())disabled @endif button big next font-white">
+                    下一页
+                </a>
+            </li>
         </ul>
 
     </div>
