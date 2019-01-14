@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
-
-    /**
-     *  全部分类列表
-     *  GET|HEAD backend/category
-     */
     public function index(){
         $categoryList = (new Category()) -> tree();
 
@@ -41,10 +36,6 @@ class CategoryController extends Controller
         return $data;
     }
 
-    /**
-     * 创建分类
-     * GET|HEAD backend/category/create
-     */
     public function create(){
         $data = Category::query()->where('cate_pid', 0)->get();
 
@@ -54,10 +45,6 @@ class CategoryController extends Controller
         ]);
     }
 
-    /**
-     *  添加分类提交
-     *  POST  backend/category
-     */
     public function store(){
         $input = Input::except('_token');
         $rule = [
@@ -70,7 +57,7 @@ class CategoryController extends Controller
         ];
         $validator = Validator::make($input,$rule,$message);
         if($validator->passes()){
-            $result = Category::insert($input);
+            $result = Category::query()->insert($input);
             if($result){
                 return redirect('/backend/category');
             }else{
@@ -82,24 +69,18 @@ class CategoryController extends Controller
 
     }
 
-    /**
-     * 编辑分类
-     * GET|HEAD backend/category/{category}/edit
-     */
+
     public function edit($cate_id){
         $cateInfo = Category::query()->find($cate_id);
-        $data = Category::query()->where('cate_pid', 0)->get();
+        $parentCategory = Category::query()->where('cate_pid', 0)->get();
 
         return view('backend.category.edit',[
             'activeTab' => 'category.edit',
-            'cateInfo' => $data
+            'cateInfo' => $cateInfo,
+            'parentCategory' => $parentCategory
         ]);
     }
 
-    /**
-     * 更新分类
-     * PUT|PATCH backend/category/{category}
-     */
     public function update($cate_id){
         $update = Input::except('_method','_token');
         $result = Category::query()->where('cate_id', $cate_id) -> update($update);
@@ -110,13 +91,9 @@ class CategoryController extends Controller
         }
     }
 
-    /**
-     * 删除分类
-     * DELETE backend/category/{category}
-     */
     public function destroy($cate_id){
-        $result = Category::where('cate_id', $cate_id)->delete();
-        Category::where('cate_pid', $cate_id)->update(['cate_pid' => 0]);
+        $result = Category::query()->where('cate_id', $cate_id)->delete();
+        Category::query()->where('cate_pid', $cate_id)->update(['cate_pid' => 0]);
         $data = [];
         if($result){
             $data['status'] = 1;

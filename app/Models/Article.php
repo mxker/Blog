@@ -27,4 +27,12 @@ class Article extends Model
     protected $hidden = [
 
     ];
+
+    protected $appends = [
+        'cate_name'
+    ];
+
+    public function getCateNameAttribute(){
+        return Category::query()->where('cate_id',$this->attributes['cate_id'])->value('cate_name');
+    }
 }

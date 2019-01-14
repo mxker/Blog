@@ -26,8 +26,8 @@
                                 <td>{{$v['cate_keywords']}}</td>
                                 <td>{{$v['cate_description']}}</td>
                                 <td>
-                                    <a class="btn btn-secondary btn-sm btn-icon icon-left" href="{{url('backend/category/'.$v["cate_id"]).'/edit'}}">编辑</a>
-                                    <a class="btn btn-danger btn-sm btn-icon icon-left" href="javascript:;" onclick="delCate({{ $v['cate_id'] }})">删除</a>
+                                    <a class="btn btn-secondary btn-sm btn-icon icon-left" href="{{url('backend/category/'.$v["cate_id"]).'/edit'}}">Edit</a>
+                                    <a class="btn btn-danger btn-sm btn-icon icon-left" href="javascript:;" onclick="delCate({{ $v['cate_id'] }})">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

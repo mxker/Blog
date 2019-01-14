@@ -30,8 +30,11 @@
         <nav class="links">
             <ul>
                 <li><a href="{{ url('/') }}">首页</a></li>
-                <li><a href="{{ url('/') }}">博客</a></li>
-                <li><a href="{{ url('/') }}">关于我</a></li>
+                @if( !empty($category) )
+                    @foreach($category as $cate)
+                        <li><a href="{{ url('/') }}">{{ $cate->cate_name }}</a></li>
+                    @endforeach
+                @endif
             </ul>
         </nav>
         <nav class="main">

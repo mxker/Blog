@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
@@ -19,5 +20,10 @@ class Controller extends BaseController
      */
     public function parsePage($parse){
         return json_decode(json_encode($parse),true);
+    }
+
+    public function parentCategory()
+    {
+        return Category::query()->where('cate_pid',0)->latest('cate_order')->get();
     }
 }

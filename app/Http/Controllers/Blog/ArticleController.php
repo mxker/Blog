@@ -24,17 +24,9 @@ class ArticleController extends Controller
         }
         $articleInfo['artThumbUrl'] = $artThumbUrl;
 
-        return view('blog.article', compact('data', 'articleInfo'));
-    }
-
-    public function searchArticle(Request $request)
-    {
-        try{
-            $keywords = $request->input('keywords');
-
-
-        }catch (\Exception $e){
-
-        }
+        return view('blog.article', compact('data', 'articleInfo'))
+            ->with([
+                'category' => $this->parentCategory()
+            ]);
     }
 }

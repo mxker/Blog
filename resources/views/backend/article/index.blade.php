@@ -70,9 +70,9 @@
                             </div>
                         </th>
                         <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Student Name: activate to sort column ascending" style="width: 246px;">文章名称</th>
+                        <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 145px;">文章分类</th>
                         <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Average Grade: activate to sort column ascending" style="width: 194px;">关键词</th>
                         <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Curriculum / Occupation: activate to sort column ascending" style="width: 145px;">作者</th>
-                        <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 321px;">文章描述</th>
                         <th class="sorting" tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 155px;">添加时间</th>
                         <th tabindex="0" aria-controls="example-2" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 205px;">操作</th>
                     </tr>
@@ -85,9 +85,9 @@
                                 <div class="cbr-replaced"><div class="cbr-input"><input type="checkbox" class="cbr cbr-done"></div><div class="cbr-state"><span></span></div></div>
                             </td>
                             <td>{{$v['art_name']}}</td>
+                            <td>{{$v['cate_name']}}</td>
                             <td>{{$v['art_tag']}}</td>
                             <td>{{$v['art_editor']}}</td>
-                            <td>{{$v['art_desc']}}</td>
                             <td>{{ date('Y-m-d H:i:s',$v['art_time']) }}</td>
                             <td>
                                 <a href="{{ url('backend/article/'.$v['art_id'].'/edit') }}" class="btn btn-secondary btn-sm btn-icon icon-left">

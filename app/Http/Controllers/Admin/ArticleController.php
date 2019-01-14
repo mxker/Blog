@@ -15,7 +15,7 @@ class ArticleController extends Controller
 {
     public function index(){
 
-        $paginate = Article::query()->paginate(10);
+        $paginate = Article::query()->latest()->paginate(10);
 
         return view('backend.article.index',[
             'activeTab' => 'article',

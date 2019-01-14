@@ -205,14 +205,14 @@
                         <span class="title">文章管理</span>
                     </a>
                     <ul>
-                        <li @if(isset($activeTab) && $activeTab == 'article.add') class="active opened active" @endif>
-                            <a href="{{ url('backend/article/create') }}">
-                                <span class="title">添加文章</span>
-                            </a>
-                        </li>
                         <li @if(isset($activeTab) && $activeTab == 'article') class="active opened active" @endif>
                             <a href="{{ url('backend/article') }}">
                                 <span class="title">文章列表</span>
+                            </a>
+                        </li>
+                        <li @if(isset($activeTab) && $activeTab == 'article.add') class="active opened active" @endif>
+                            <a href="{{ url('backend/article/create') }}">
+                                <span class="title">添加文章</span>
                             </a>
                         </li>
                     </ul>
@@ -225,12 +225,12 @@
                     <ul>
                         <li @if(isset($activeTab) && $activeTab == 'category') class="active opened active" @endif>
                             <a href="{{ url('backend/category') }}">
-                                <span class="title">文章分类</span>
+                                <span class="title">分类列表</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="ui-buttons.html">
-                                <span class="title">导航分类</span>
+                        <li @if(isset($activeTab) && $activeTab == 'category.add') class="active opened active" @endif>
+                            <a href="{{ url('backend/category/create') }}">
+                                <span class="title">添加分类</span>
                             </a>
                         </li>
                     </ul>

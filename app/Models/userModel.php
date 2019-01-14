@@ -34,7 +34,6 @@ class UserModel extends Model {
                     'userName' => $userInfo->admin_name,
                 ]);
 
-                // 登录令牌
                 $isLogin = DB::table('sessions') -> where(['user_id' => $userInfo->admin_id]) -> first();
                 if($isLogin){
                     DB::table('sessions') -> where('id',$isLogin->id)->update(['token' => 222]);

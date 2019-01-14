@@ -41,8 +41,8 @@
                     <label class="col-sm-2 control-label">层级关系</label>
                     <div class="col-sm-10">
                         <select class="form-control input-rounded" name="cate_pid">
-                            <option value="0">==顶级分类==</option>
-                            @foreach($data as $v)
+                            <option value="0">==所属上级==</option>
+                            @foreach($parentCategory as $v)
                                 <option value="{{$v->cate_id}}"
                                     @if($v->cate_id == $cateInfo->cate_pid)selected @endif
                                 >{{$v->cate_name}}</option>

@@ -11,9 +11,5 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /app/Http/Controllers/Demo
-<<<<<<< HEAD
 /.env
-=======
 
-/.env
->>>>>>> 9aae88066f58bd03fe2cf89d7096bf460250f106
