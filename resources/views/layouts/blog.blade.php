@@ -86,6 +86,8 @@
     @yield('content')
 </div>
 
+@yield('footer')
+
 <!-- Scripts -->
 <script src="{{ asset('blog/assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('blog/assets/js/skel.min.js') }}"></script>

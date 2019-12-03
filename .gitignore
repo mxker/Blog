@@ -12,4 +12,5 @@ npm-debug.log
 yarn-error.log
 /app/Http/Controllers/Demo
 .env
-
+/storage/framework/views
+/storage/logs

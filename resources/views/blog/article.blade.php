@@ -242,3 +242,18 @@
     <!-- end content -->
 
 @endsection
+
+@section('footer')
+    <!-- Footer -->
+    <section id="footer">
+        <ul class="icons beian">
+            <li><a href="https://twitter.com/" class="fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="http://zh-tw.facebook.com/" class="fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="https://github.com/cargic" class="fa-instagram"><span class="label">GitHub</span></a></li>
+            <li><a href="http://blog.csdn.net/wmlml?ref=toolbar" class="fa-rss"><span class="label">CSDN</span></a></li>
+            <li><a href="http://mail.163.com" class="fa-envelope"><span class="label">Email</span></a></li><br />
+            <li>Copyright © 2019 <a href="http://mxker.cn" title="mxker">http://mxker.cn</a>.All rights reserved.</li>
+            <li><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15034350" target="_blank">蜀ICP备15034350号</a></li>
+        </ul>
+    </section>
+@endsection

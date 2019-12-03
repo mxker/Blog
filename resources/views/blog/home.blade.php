@@ -124,7 +124,7 @@
                 <li><a href="http://blog.csdn.net/wmlml?ref=toolbar" class="fa-rss"><span class="label">CSDN</span></a></li>
                 <li><a href="http://mail.163.com" class="fa-envelope"><span class="label">Email</span></a></li>
             </ul>
-            <p class="copyright">&copy; Untitled. More Knowledge <a href="http://blog.csdn.net/wmlml?ref=toolbar" target="_blank" title="CSDN">CSDN博客</a>.</p>
+            <p class="copyright">Copyright © 2019 All rights reserved.</p>
             <p class="copyright"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15034350" target="_blank">蜀ICP备15034350号</a></p>
         </section>
 
