@@ -84,7 +84,6 @@
     </section>
 
     @yield('content')
-
 </div>
 
 <!-- Scripts -->

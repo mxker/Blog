@@ -125,12 +125,13 @@
                 <li><a href="http://mail.163.com" class="fa-envelope"><span class="label">Email</span></a></li>
             </ul>
             <p class="copyright">&copy; Untitled. More Knowledge <a href="http://blog.csdn.net/wmlml?ref=toolbar" target="_blank" title="CSDN">CSDN博客</a>.</p>
+            <p class="copyright"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15034350" target="_blank">蜀ICP备15034350号</a></p>
         </section>
 
     </section>
 
 
-    <script src="http://fengshayun.top/Scripts/hovertreewelcome.js"></script>
+{{--    <script src="http://fengshayun.top/Scripts/hovertreewelcome.js"></script>--}}
     <script type="text/javascript">
         var Stats = function () {
             var e = Date.now(), t = e, i = 0, n = 1 / 0, r = 0, s = 0, o = 1 / 0, a = 0, l = 0, h = 0, c = document.createElement("div");
