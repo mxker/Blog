@@ -17,7 +17,7 @@ class CheckSession
     public function handle($request, Closure $next){
         $session = $request ->session()-> get('userInfo');
         if(!$session){
-            return redirect('/backend/login');
+            return redirect('/backend/');
         }
 
         return $next($request);

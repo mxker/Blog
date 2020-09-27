@@ -38,7 +38,7 @@ class LoginController extends Controller {
         }else{
             // 使用一次性session做提示
             $request->session()->flash('message', '账号和密码错误');
-            return redirect('/backend/login');
+            return redirect('/backend/');
         }
     }
 

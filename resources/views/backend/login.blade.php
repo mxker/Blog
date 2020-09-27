@@ -18,7 +18,7 @@
 
 
     <link rel="stylesheet" href="/css/skins/palette.1.css" id="skin">
-    <link rel="stylesheet" href="/css/fonts/style.1.css" id="font">
+{{--    <link rel="stylesheet" href="/css/fonts/style.1.css" id="font">--}}
     <link rel="stylesheet" href="/css/main.css">
 
 
