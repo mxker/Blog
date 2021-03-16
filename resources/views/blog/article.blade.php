@@ -16,7 +16,7 @@
                     <a href="#" class="author"><span class="name">{{ $articleInfo -> art_editor }}</span><img src="{{ asset('blog/images/avatar.jpg') }}" alt="" /></a>
                 </div>
             </header>
-            <a href="#" class="image featured"><img src="{{ asset($articleInfo['artThumbUrl']) }}" alt="" /></a>
+            <a href="#" class="image featured"><img src="{{ $articleInfo['artThumbUrl'] }}" alt="" /></a>
             {!! $articleInfo -> art_content !!}
             <footer>
                 <ul class="stats">

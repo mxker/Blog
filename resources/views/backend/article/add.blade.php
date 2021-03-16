@@ -43,7 +43,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">作者名称</label>
                     <div class="col-sm-10">
-                        <input type="text" name="art_editor" class="form-control input-rounded">
+                        <input type="text" name="art_editor" class="form-control input-rounded" value="骑在大象背上的人生">
                     </div>
                 </div>
                 <div class="form-group">

@@ -36,7 +36,7 @@ class ArticleController extends Controller
 
     public function store(Request $request){
 
-        $input = Input::except('_token');
+        $input = Input::except('_token','s');
 
         $rule = [
             'art_name' => 'required',
@@ -60,9 +60,10 @@ class ArticleController extends Controller
         }
 
         $input['art_time'] = strtotime(Carbon::now());
-
         $validator = Validator::make($input,$rule,$message);
         if($validator->passes()){
+            $input['is_hot'] = $input['is_hot'] == 'on' ? 1 : 0;
+            $input['is_mark'] = $input['is_mark'] == 'on' ? 1 : 0;
             $result = Article::insert($input);
             if($result){
                 return redirect('/backend/article');
@@ -93,7 +94,7 @@ class ArticleController extends Controller
 
     public function update($artId, Request $request){
 
-        $update = Input::except('_method','_token');
+        $update = Input::except('_method','_token','s');
         if(!empty($update['art_thumb'])){
             $suffix = substr($_FILES['art_thumb']['name'],strripos($_FILES['art_thumb']['name'],'.'));
             $path = $request -> file('art_thumb') -> storeAs('public/article', 'article_'.time().$suffix);
