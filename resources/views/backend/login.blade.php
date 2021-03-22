@@ -34,13 +34,14 @@
     <div class="center-content">
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                <h3 style="color: red;">{{ session('message') }}</h3>
-                @if (count($errors) > 0)
+                <h3 style="color: red;"></h3>
+                @if (session('message'))
                     <div class="alert alert-danger">
                         <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
+{{--                            @foreach ($errors->all() as $error)--}}
+{{--                                <li>{{ $error }}</li>--}}
+                                <li>{{ session('message') }}</li>
+{{--                            @endforeach--}}
                         </ul>
                     </div>
                 @endif

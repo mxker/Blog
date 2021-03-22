@@ -20,9 +20,9 @@
             {!! $articleInfo -> art_content !!}
             <footer>
                 <ul class="stats">
-                    <li><a href="#">General</a></li>
-                    <li><a href="#" class="icon fa-heart">{{ $articleInfo['art_view'] }}</a></li>
-                    <li><a href="#" class="icon fa-comment">128</a></li>
+{{--                    <li><a href="#">General</a></li>--}}
+                    <li><a href="#" class="icon fa-eye">{{ $articleInfo['art_view'] }}</a></li>
+{{--                    <li><a href="#" class="icon fa-comment">128</a></li>--}}
                 </ul>
             </footer>
         </article>

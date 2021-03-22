@@ -102,9 +102,9 @@
                                     Delete
                                 </a>
 
-                                <a href="{{ url('backend/article/'.$v["art_id"]) }}" class="btn btn-info btn-sm btn-icon icon-left">
-                                    Profile
-                                </a>
+{{--                                <a href="{{ url('backend/article/'.$v["art_id"]) }}" class="btn btn-info btn-sm btn-icon icon-left">--}}
+{{--                                    Profile--}}
+{{--                                </a>--}}
                             </td>
                         </tr>
                     @endforeach

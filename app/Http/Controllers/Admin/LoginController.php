@@ -37,7 +37,7 @@ class LoginController extends Controller {
             return redirect('/backend/home/'.$userInfo->admin_id);
         }else{
             // 使用一次性session做提示
-            $request->session()->flash('message', '账号和密码错误');
+            $request->session()->flash('message', 'Password is wrong');
             return redirect('/backend/');
         }
     }
@@ -82,7 +82,7 @@ class LoginController extends Controller {
             if($result){
                 return redirect('/backend/login');
             }else{
-                $request->session()->flash('message', '注册失败，请稍后重试');
+                $request->session()->flash('message', 'Registration failed');
                 return redirect('/backend/register');
             }
         }

@@ -75,11 +75,11 @@
         </section>
 
         <!-- Actions -->
-        <section>
-            <ul class="actions vertical">
-                <li><a href="#" class="button big fit">Log In</a></li>
-            </ul>
-        </section>
+{{--        <section>--}}
+{{--            <ul class="actions vertical">--}}
+{{--                <li><a href="#" class="button big fit">Log In</a></li>--}}
+{{--            </ul>--}}
+{{--        </section>--}}
 
     </section>
 

@@ -84,10 +84,10 @@
                     <label class="col-sm-2 control-label" for="field-1">热搜文章</label>
 
                     <div class="col-xs-2" style="display: flex;align-items: center; vertical-align: middle;">
-                        <input type="checkbox" name="is_hot" class="iswitch-lg iswitch-red">
+                        <input type="checkbox" name="is_green" class="iswitch-lg iswitch iswitch-secondary">
                     </div>
-                    <label class="col-sm-2 control-label" style="color: red;"
-                           for="field-1">注：默认状态为关闭，红色开启</label>
+{{--                    <label class="col-sm-3 control-label" style="color: red;"--}}
+{{--                           for="field-1">注：默认状态为关闭，红色开启</label>--}}
                 </div>
 
                 <div class="form-group-separator"></div>
@@ -96,10 +96,10 @@
                     <label class="col-sm-2 control-label" for="field-1">推荐文章</label>
 
                     <div class="col-xs-2" style="display: flex;align-items: center; vertical-align: middle;">
-                        <input type="checkbox" name="is_mark" class="iswitch-lg iswitch-red">
+                        <input type="checkbox" name="is_green" class="iswitch-lg iswitch iswitch-secondary">
                     </div>
-                    <label class="col-sm-2 control-label" style="color: red;"
-                           for="field-1">注：默认状态为关闭，红色开启</label>
+{{--                    <label class="col-sm-3 control-label" style="color: red;"--}}
+{{--                           for="field-1">注：默认状态为关闭，红色开启</label>--}}
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label"></label>

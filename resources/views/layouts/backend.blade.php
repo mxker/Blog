@@ -196,23 +196,23 @@
                 <li @if(isset($activeTab) && $activeTab=='home') class="active opened active" @endif>
                     <a href="{{ url('backend/home/' . (isset($userInfo)?$userInfo['admin_id']:1) ) }}">
                         <i class="linecons-database"></i>
-                        <span class="title">实时数据</span>
+                        <span class="title">Real-time data</span>
                     </a>
                 </li>
                 <li @if(isset($activeTab) && ($activeTab=='article' || $activeTab == 'article.add')) class="active opened active" @endif>
                     <a href="layout-variants.html">
                         <i class="linecons-note"></i>
-                        <span class="title">文章管理</span>
+                        <span class="title">Article management</span>
                     </a>
                     <ul>
                         <li @if(isset($activeTab) && $activeTab == 'article') class="active opened active" @endif>
                             <a href="{{ url('backend/article') }}">
-                                <span class="title">文章列表</span>
+                                <span class="title">Article list</span>
                             </a>
                         </li>
                         <li @if(isset($activeTab) && $activeTab == 'article.add') class="active opened active" @endif>
                             <a href="{{ url('backend/article/create') }}">
-                                <span class="title">添加文章</span>
+                                <span class="title">Add article</span>
                             </a>
                         </li>
                     </ul>
@@ -220,25 +220,25 @@
                 <li @if(isset($activeTab) && $activeTab == 'category') class="active opened active" @endif>
                     <a href="{{ url('backend/category') }}">
                         <i class="linecons-tag"></i>
-                        <span class="title">菜单管理</span>
+                        <span class="title">Category management</span>
                     </a>
                     <ul>
                         <li @if(isset($activeTab) && $activeTab == 'category') class="active opened active" @endif>
                             <a href="{{ url('backend/category') }}">
-                                <span class="title">分类列表</span>
+                                <span class="title">Category List</span>
                             </a>
                         </li>
                         <li @if(isset($activeTab) && $activeTab == 'category.add') class="active opened active" @endif>
                             <a href="{{ url('backend/category/create') }}">
-                                <span class="title">添加分类</span>
+                                <span class="title">Add category</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="ui-widgets.html">
+                    <a href="#">
                         <i class="linecons-star"></i>
-                        <span class="title">版本概要</span>
+                        <span class="title">icon</span>
                     </a>
                 </li>
             </ul>
@@ -524,38 +524,38 @@
                     <a href="#" data-toggle="dropdown">
                         <img src="/images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
                         <span>
-								Arlind Nushi
+								Admin
 								<i class="fa-angle-down"></i>
 							</span>
                     </a>
 
                     <ul class="dropdown-menu user-profile-menu list-unstyled">
-                        <li>
-                            <a href="#edit-profile">
-                                <i class="fa-edit"></i>
-                                New Post
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#settings">
-                                <i class="fa-wrench"></i>
-                                Settings
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#profile">
-                                <i class="fa-user"></i>
-                                Profile
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#help">
-                                <i class="fa-info"></i>
-                                Help
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="#edit-profile">--}}
+{{--                                <i class="fa-edit"></i>--}}
+{{--                                New Post--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="#settings">--}}
+{{--                                <i class="fa-wrench"></i>--}}
+{{--                                Settings--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="#profile">--}}
+{{--                                <i class="fa-user"></i>--}}
+{{--                                Profile--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="#help">--}}
+{{--                                <i class="fa-info"></i>--}}
+{{--                                Help--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <li class="last">
-                            <a href="extra-lockscreen.html">
+                            <a href="{{ url('backend/') }}">
                                 <i class="fa-lock"></i>
                                 Logout
                             </a>
@@ -628,7 +628,6 @@
 <!-- JavaScripts initializations and stuff -->
 <script src="/js/xenon-custom.js"></script>
 
-// 引入弹层框
 <script src="{{ asset('/org/layer/layer.js') }}"></script>
 </body>
 @show
