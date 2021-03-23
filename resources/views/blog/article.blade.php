@@ -17,7 +17,7 @@
                 </div>
             </header>
             <a href="#" class="image featured"><img src="{{ $articleInfo['artThumbUrl'] }}" alt="" /></a>
-            {!! $articleInfo -> art_content !!}
+            {!! $articleInfo -> content !!}
             <footer>
                 <ul class="stats">
 {{--                    <li><a href="#">General</a></li>--}}

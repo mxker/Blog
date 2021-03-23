@@ -1,0 +1,183 @@
+array (
+  'article_id' => 24,
+  'content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
+)App\Models\ArticleContent::__set_state(array(
+   'table' => 'article_content',
+   'primaryKey' => 'id',
+   'fillable' => 
+  array (
+    0 => 'id',
+    1 => 'article_id',
+    2 => 'content',
+  ),
+   'hidden' => 
+  array (
+  ),
+   'connection' => 'mysql',
+   'keyType' => 'int',
+   'incrementing' => true,
+   'with' => 
+  array (
+  ),
+   'withCount' => 
+  array (
+  ),
+   'perPage' => 15,
+   'exists' => true,
+   'wasRecentlyCreated' => true,
+   'attributes' => 
+  array (
+    'article_id' => 24,
+    'content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
+    'updated_at' => '2021-03-23 13:43:03',
+    'created_at' => '2021-03-23 13:43:03',
+    'id' => 1,
+  ),
+   'original' => 
+  array (
+    'article_id' => 24,
+    'content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
+    'updated_at' => '2021-03-23 13:43:03',
+    'created_at' => '2021-03-23 13:43:03',
+    'id' => 1,
+  ),
+   'casts' => 
+  array (
+  ),
+   'dates' => 
+  array (
+  ),
+   'dateFormat' => NULL,
+   'appends' => 
+  array (
+  ),
+   'events' => 
+  array (
+  ),
+   'observables' => 
+  array (
+  ),
+   'relations' => 
+  array (
+  ),
+   'touches' => 
+  array (
+  ),
+   'timestamps' => true,
+   'visible' => 
+  array (
+  ),
+   'guarded' => 
+  array (
+    0 => '*',
+  ),
+))trueApp\Models\Article::__set_state(array(
+   'table' => 'article',
+   'primaryKey' => 'art_id',
+   'fillable' => 
+  array (
+    0 => 'art_id',
+    1 => 'art_name',
+    2 => 'cate_id',
+    3 => 'art_tag',
+    4 => 'art_desc',
+    5 => 'art_content',
+    6 => 'art_thumb',
+    7 => 'art_time',
+    8 => 'update_time',
+    9 => 'art_editor',
+    10 => 'art_view',
+    11 => 'is_hot',
+    12 => 'is_mark',
+  ),
+   'hidden' => 
+  array (
+  ),
+   'appends' => 
+  array (
+    0 => 'cate_name',
+  ),
+   'connection' => 'mysql',
+   'keyType' => 'int',
+   'incrementing' => true,
+   'with' => 
+  array (
+  ),
+   'withCount' => 
+  array (
+  ),
+   'perPage' => 15,
+   'exists' => true,
+   'wasRecentlyCreated' => false,
+   'attributes' => 
+  array (
+    'art_id' => 24,
+    'art_name' => 'Mac PHP编译安装扩展遇到的问题',
+    'cate_id' => 2,
+    'art_tag' => 'Mac PHP 编译',
+    'art_desc' => '安装扩展遇到的问题',
+    'art_content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
+    'art_thumb' => '',
+    'art_time' => 1616478182,
+    'update_time' => 0,
+    'art_editor' => '骑在大象背上的人生',
+    'art_view' => 99,
+    'is_hot' => 0,
+    'is_mark' => 0,
+    'art_status' => 1,
+    'created_at' => '2021-03-23 13:43:03',
+    'updated_at' => '2021-03-23 13:43:03',
+    'id' => 1,
+    'article_id' => 24,
+    'content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
+  ),
+   'original' => 
+  array (
+    'art_id' => 24,
+    'art_name' => 'Mac PHP编译安装扩展遇到的问题',
+    'cate_id' => 2,
+    'art_tag' => 'Mac PHP 编译',
+    'art_desc' => '安装扩展遇到的问题',
+    'art_content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
+    'art_thumb' => '',
+    'art_time' => 1616478182,
+    'update_time' => 0,
+    'art_editor' => '骑在大象背上的人生',
+    'art_view' => 99,
+    'is_hot' => 0,
+    'is_mark' => 0,
+    'art_status' => 1,
+    'created_at' => '2021-03-23 13:43:03',
+    'updated_at' => '2021-03-23 13:43:03',
+    'id' => 1,
+    'article_id' => 24,
+    'content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
+  ),
+   'casts' => 
+  array (
+  ),
+   'dates' => 
+  array (
+  ),
+   'dateFormat' => NULL,
+   'events' => 
+  array (
+  ),
+   'observables' => 
+  array (
+  ),
+   'relations' => 
+  array (
+  ),
+   'touches' => 
+  array (
+  ),
+   'timestamps' => true,
+   'visible' => 
+  array (
+  ),
+   'guarded' => 
+  array (
+    0 => '*',
+  ),
+))

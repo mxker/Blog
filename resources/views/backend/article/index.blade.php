@@ -144,6 +144,7 @@
             }, function(){
                 $.post("{{url('backend/article/')}}/"+art_id, {'_token':'{{ csrf_token() }}','_method':'delete', 'art_id':art_id},
                         function (data) {
+                            console.log(data)
                             if(data.status = 1){
                                 location.reload();
                                 layer.alert(data.msg, {icon: 6});

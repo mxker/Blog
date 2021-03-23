@@ -4,19 +4,26 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Services\ArticleService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use PhpParser\Node\Scalar\String_;
 
 class ArticleController extends Controller
 {
+    public $articleService;
+
+    public function __construct()
+    {
+        $this->articleService = new ArticleService();
+    }
+
     public function index(){
-
-        $paginate = Article::query()->latest()->paginate(10);
-
+        $paginate = $this->articleService->page();
         return view('backend.article.index',[
             'activeTab' => 'article',
             'data' => $this->parsePage($paginate->items()),
@@ -25,9 +32,7 @@ class ArticleController extends Controller
     }
 
     public function create(){
-
         $data = Category::all();
-
         return view('backend.article.add',[
             'activeTab' => 'article.add',
             'data' => $data
@@ -35,7 +40,6 @@ class ArticleController extends Controller
     }
 
     public function store(Request $request){
-
         $input = Input::except('_token','s');
 
         $rule = [
@@ -62,9 +66,9 @@ class ArticleController extends Controller
         $input['art_time'] = strtotime(Carbon::now());
         $validator = Validator::make($input,$rule,$message);
         if($validator->passes()){
-            $input['is_hot'] = $input['is_hot'] == 'on' ? 1 : 0;
-            $input['is_mark'] = $input['is_mark'] == 'on' ? 1 : 0;
-            $result = Article::insert($input);
+            $input['is_hot'] = (isset($input['is_hot']) && $input['is_hot'] == 'on') ? 1 : 0;
+            $input['is_mark'] = (isset($input['is_mark']) && $input['is_mark'] == 'on') ? 1 : 0;
+            $result = $this->articleService->save($input);
             if($result){
                 return redirect('/backend/article');
             }else{
@@ -78,7 +82,8 @@ class ArticleController extends Controller
 
     public function edit($artId){
 
-        $articleInfo = Article::query()->find($artId) -> toArray();
+//        $articleInfo = Article::query()->find($artId) -> toArray();
+        $articleInfo = $this->articleService->detail($artId);
 
         $artThumbUrl = Storage::url($articleInfo['art_thumb']);
         $articleInfo['artThumbUrl'] = $artThumbUrl;
@@ -93,7 +98,6 @@ class ArticleController extends Controller
     }
 
     public function update($artId, Request $request){
-
         $update = Input::except('_method','_token','s');
         if(!empty($update['art_thumb'])){
             $suffix = substr($_FILES['art_thumb']['name'],strripos($_FILES['art_thumb']['name'],'.'));
@@ -110,9 +114,7 @@ class ArticleController extends Controller
         if( isset($update['is_mark']) ){
             $update['is_mark'] = 1;
         }
-
-        $result = Article::query()->where('art_id', $artId) -> update($update);
-
+        $result = $this->articleService->update($artId,$update);
         if($result){
             return redirect('/backend/article');
         }else{
@@ -125,9 +127,14 @@ class ArticleController extends Controller
         dd($artInfo);
     }
 
-
     public function destroy($artId)
     {
-
+        $artInfo = Article::find($artId);
+        if ($artInfo){
+            $result = $this->articleService->del($artId);
+            return $result ? 1 : 0;
+        }else{
+            return back()->with('errors', 'Article does not exist');
+        }
     }
 }

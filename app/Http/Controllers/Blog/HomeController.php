@@ -17,16 +17,19 @@ class HomeController extends Controller
         if( !empty($keywords) ){
             $articlePageList = Article::query()
                 ->where('art_name','like','%'.$keywords.'%')
+                ->where('art_status','=',1)
                 ->orderBy('art_time', 'desc')
                 ->Paginate(3);
 
         }elseif (!empty($cateId)){
             $articlePageList = Article::query()
                 ->where('cate_id',$cateId)
+                ->where('art_status','=',1)
                 ->orderBy('art_time', 'desc')
                 ->Paginate(3);
         }else{
             $articlePageList = Article::query()
+                ->where('art_status','=',1)
                 ->orderBy('art_time', 'desc')
                 ->Paginate(3);
         }
@@ -45,11 +48,13 @@ class HomeController extends Controller
 
         $hotArticle = Article::query()
             ->where('is_hot',1)
+            ->where('art_status','=',1)
             ->orderByRaw('RAND()')
             ->take(3)->get()->toArray();
 
         $markArticle = Article::query()
             ->where('is_mark',1)
+            ->where('art_status','=',1)
             ->orderByRaw('RAND()')
             ->take(3)->get()-> toArray();
 
