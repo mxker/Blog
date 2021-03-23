@@ -20,7 +20,7 @@ class ArticleController extends Controller
     public function index($id){
         $data = Article::all()->toArray();
         $articleInfo = $this->articleService->detail($id);
-        $this->articleService->update($id,['art_view'=>$articleInfo -> art_view + 1]);
+        $this->articleService->updateView($id,['art_view'=>$articleInfo->art_view + 1]);
         if($articleInfo['art_thumb']){
             $artThumbUrl = Storage::url($articleInfo['art_thumb']);
         }else{

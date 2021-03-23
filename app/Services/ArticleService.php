@@ -73,4 +73,7 @@ class ArticleService
             ->where(['article.art_status'=>1])->find($id);
     }
 
+    public function updateView($id,$update){
+        return  Article::query()->where('art_id', $id) -> update($update);
+    }
 }
