@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Models\Article;
 use App\Models\ArticleContent;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Mockery\Exception;
 
 /**
@@ -36,9 +37,8 @@ class ArticleService
             DB::commit();
             return true;
         }catch (\Exception $e){
+            Log::error("[blog save]".$e->getMessage());
             DB::rollBack();
-            file_put_contents(base_path("demo.txt"),var_export($e->getMessage(),true),FILE_APPEND);
-
             return false;
         }
     }

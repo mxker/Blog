@@ -6,12 +6,12 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
     public function index(Request $request){
-
         $keywords = $request->input('keywords');
         $cateId = $request->input('cate_id');
         if( !empty($keywords) ){
