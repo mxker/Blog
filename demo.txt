@@ -1,183 +1,116 @@
-array (
-  'article_id' => 24,
-  'content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
-)App\Models\ArticleContent::__set_state(array(
-   'table' => 'article_content',
-   'primaryKey' => 'id',
-   'fillable' => 
-  array (
-    0 => 'id',
-    1 => 'article_id',
-    2 => 'content',
-  ),
-   'hidden' => 
-  array (
-  ),
-   'connection' => 'mysql',
-   'keyType' => 'int',
-   'incrementing' => true,
-   'with' => 
-  array (
-  ),
-   'withCount' => 
-  array (
-  ),
-   'perPage' => 15,
-   'exists' => true,
-   'wasRecentlyCreated' => true,
-   'attributes' => 
-  array (
-    'article_id' => 24,
-    'content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
-    'updated_at' => '2021-03-23 13:43:03',
-    'created_at' => '2021-03-23 13:43:03',
-    'id' => 1,
-  ),
-   'original' => 
-  array (
-    'article_id' => 24,
-    'content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
-    'updated_at' => '2021-03-23 13:43:03',
-    'created_at' => '2021-03-23 13:43:03',
-    'id' => 1,
-  ),
-   'casts' => 
-  array (
-  ),
-   'dates' => 
-  array (
-  ),
-   'dateFormat' => NULL,
-   'appends' => 
-  array (
-  ),
-   'events' => 
-  array (
-  ),
-   'observables' => 
-  array (
-  ),
-   'relations' => 
-  array (
-  ),
-   'touches' => 
-  array (
-  ),
-   'timestamps' => true,
-   'visible' => 
-  array (
-  ),
-   'guarded' => 
-  array (
-    0 => '*',
-  ),
-))trueApp\Models\Article::__set_state(array(
-   'table' => 'article',
-   'primaryKey' => 'art_id',
-   'fillable' => 
-  array (
-    0 => 'art_id',
-    1 => 'art_name',
-    2 => 'cate_id',
-    3 => 'art_tag',
-    4 => 'art_desc',
-    5 => 'art_content',
-    6 => 'art_thumb',
-    7 => 'art_time',
-    8 => 'update_time',
-    9 => 'art_editor',
-    10 => 'art_view',
-    11 => 'is_hot',
-    12 => 'is_mark',
-  ),
-   'hidden' => 
-  array (
-  ),
-   'appends' => 
-  array (
-    0 => 'cate_name',
-  ),
-   'connection' => 'mysql',
-   'keyType' => 'int',
-   'incrementing' => true,
-   'with' => 
-  array (
-  ),
-   'withCount' => 
-  array (
-  ),
-   'perPage' => 15,
-   'exists' => true,
-   'wasRecentlyCreated' => false,
-   'attributes' => 
-  array (
-    'art_id' => 24,
-    'art_name' => 'Mac PHP编译安装扩展遇到的问题',
-    'cate_id' => 2,
-    'art_tag' => 'Mac PHP 编译',
-    'art_desc' => '安装扩展遇到的问题',
-    'art_content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
-    'art_thumb' => '',
-    'art_time' => 1616478182,
-    'update_time' => 0,
-    'art_editor' => '骑在大象背上的人生',
-    'art_view' => 99,
-    'is_hot' => 0,
-    'is_mark' => 0,
-    'art_status' => 1,
-    'created_at' => '2021-03-23 13:43:03',
-    'updated_at' => '2021-03-23 13:43:03',
-    'id' => 1,
-    'article_id' => 24,
-    'content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
-  ),
-   'original' => 
-  array (
-    'art_id' => 24,
-    'art_name' => 'Mac PHP编译安装扩展遇到的问题',
-    'cate_id' => 2,
-    'art_tag' => 'Mac PHP 编译',
-    'art_desc' => '安装扩展遇到的问题',
-    'art_content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
-    'art_thumb' => '',
-    'art_time' => 1616478182,
-    'update_time' => 0,
-    'art_editor' => '骑在大象背上的人生',
-    'art_view' => 99,
-    'is_hot' => 0,
-    'is_mark' => 0,
-    'art_status' => 1,
-    'created_at' => '2021-03-23 13:43:03',
-    'updated_at' => '2021-03-23 13:43:03',
-    'id' => 1,
-    'article_id' => 24,
-    'content' => '<p>安装扩展遇到的问题安装扩展遇到的问题</p>',
-  ),
-   'casts' => 
-  array (
-  ),
-   'dates' => 
-  array (
-  ),
-   'dateFormat' => NULL,
-   'events' => 
-  array (
-  ),
-   'observables' => 
-  array (
-  ),
-   'relations' => 
-  array (
-  ),
-   'touches' => 
-  array (
-  ),
-   'timestamps' => true,
-   'visible' => 
-  array (
-  ),
-   'guarded' => 
-  array (
-    0 => '*',
-  ),
-))
+'SQLSTATE[42S22]: Column not found: 1054 Unknown column \'art_content\' in \'field list\' (SQL: insert into `article` (`art_name`, `art_tag`, `cate_id`, `art_editor`, `art_desc`, `art_content`, `art_time`, `is_hot`, `is_mark`, `updated_at`, `created_at`) values (Docker 个人使用文档, Docker, 15, 骑在大象背上的人生, , ##### 查看镜像列表
+
+* docker ps 
+
+##### 导出项目镜像
+
+* docker export 1e560fca3906（镜像名称） > ubuntu.tar
+
+##### 容器打包
+
+* runoob@runoob:~$ docker commit -m="update" -a="mxker" e218edb10161 mxker/hyperf:v1
+
+##### 参数说明：
+
+- **-m:** 提交的描述信息
+- **-a:** 指定镜像作者
+- **e218edb10161：**容器 ID
+- mxker/hyperf:v1**:** 指定要创建的目标镜像名
+
+##### 启动本地打包新的镜像
+
+* docker run -v /home/swoole:/hyperf -p 9501:9501 -it --entrypoint /bin/sh mxker/hyperf:v1
+
+##### 本地镜像上传
+
+* 本地镜像打标签 dokcer tag mxker/hyperf:v1 mxker/hyperf:v1
+
+* 登录：docker login
+
+* 推送：docker push mxker/hyperf:v1
+
+### mysql: 
+
+* docker run -itd -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=123456 -v /Users/maxk/mysql:/var/lib/mysql  mysql
+
+### PHP-FPM 环境镜像：
+
+* docker pull php:7.4.14-fpm-alpine           
+* docker pull nginx
+* docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7
+* docker run --name php-fpm -d -v /Users/apple/PHP/projects:/var/www/html:rw --privileged=true php:7.4.14-fpm-alpine
+* docker run -itd --name larval-composer -d -v  /Users/apple/PHP/projects/laravel:/var/www/html:rw --privileged=true laravelsail/php74-composer:latest
+
+##### phpinfo
+
+* docker run --name nginx-phpinfo -p 8090:80 -d -v /Users/apple/PHP/projects:/usr/share/nginx/html:ro -v /Users/apple/nginx/conf/conf.d:/etc/nginx/conf.d:ro --link php-fpm:php nginx           
+
+##### cloud 
+
+* docker run --name nginx-cloud -p 8010:8010 -d -v /Users/apple/PHP/projects/cmall:/usr/share/nginx/html/cmall:rw --privileged=true -v /Users/apple/nginx/conf/conf.d:/etc/nginx/conf.d:ro --link php-fpm:php nginx
+
+##### chome
+
+* docker run --name nginx-chome -p 8020:8020 -d -v /Users/apple/PHP/projects/chome:/usr/share/nginx/html/chome:rw --privileged=true -v /Users/apple/nginx/conf/conf.d:/etc/nginx/conf.d:ro --link php-fpm:php nginx
+
+##### blog
+
+* docker run --name nginx-blog -p 8030:8030 -d -v /Users/apple/PHP/projects/Blog:/usr/share/nginx/html/Blog:rw --privileged=true -v /Users/apple/nginx/conf/conf.d:/etc/nginx/conf.d:ro --link php-fpm:php nginx
+
+##### iframe
+
+* docker run --name myphp-fpm8 -d -v /Users/apple/PHP/projects:/var/www/html:rw --privileged=true php:8.0.1-fpm-alpine3.12     
+
+* docker run --name iframe -p 8030:8030 -d -v /Users/apple/PHP/projects/cmall:/usr/share/nginx/html/iframe:rw --privileged=true -v /Users/apple/nginx/conf/conf.d:/etc/nginx/conf.d:ro --link myphp-fpm8:php nginx
+
+* :rw 允许挂载的目录具有读写权限
+* :ro 允许挂载的目录只有只读权限
+
+### PHP-CLI 环境镜像：
+
+##### hyperf
+
+- docker pull hyperf/hyperf:7.4-alpine-v3.10-swoole
+
+- docker run --name hyperf -v /Users/apple/PHP/projects:/data/project  -p 9501:9501 -it --privileged -u root  --entrypoint /bin/sh  hyperf/hyperf:7.4-alpine-v3.10-swoole
+
+### Elasticsearch
+
+* docker pull elasticsearch:7.6.1
+
+* docker network create somenetwork
+
+* docker run -d --name elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.6.1
+
+### Dockerfile
+
+* 在拥有dockerfile的文件夹：docker build -t php-gd:v1 . 
+
+### Docker安装PHP扩展 
+
+* https://www.cnblogs.com/yinguohai/p/11329273.html
+
+### Centos
+
+* docker run -it -d --name centos-1 centos:7
+
+* 容器互访：https://www.jb51.net/article/196378.htm
+
+* Bridge网络：
+
+  * 查看docker网络：docker network ls
+
+  * 创建网络：docker network create centosnet
+
+  * 运行容器连接到网络（centosnet）：
+
+    * 使用方法：docker run -it --name <容器名> ---network <bridge> --network-alias <网络别名> <镜像名>
+
+    * ```shell
+      docker run -it -d --name centos-1 --network centosnet --network-alias centos-1 centos:7
+      docker run -it -d --name centos-2 --network centosnet --network-alias centos-2 centos:7
+      ```
+
+* 创建桥接网段：docker network create --subnet=10.50.33.0/16 mynet
+* 为容器设置固定ip：docker run -it -d --net mynet --ip 10.50.33.9 --name mycentos-2 centos:7
+* 注：unkown ip addr  =》 yum -y install initscripts, 1616555493, 0, 0, 2021-03-24 11:11:33, 2021-03-24 11:11:33))'

@@ -41,18 +41,15 @@ class ArticleController extends Controller
 
     public function store(Request $request){
         $input = Input::except('_token','s');
-
         $rule = [
             'art_name' => 'required',
             'art_tag' => 'required',
-            'art_content' => 'required',
             'art_editor' => 'required',
         ];
         $message = [
             'art_name.required' => '文章名称不能为空',
             'art_tag.required' => '文章关键词不能为空',
             'art_editor.required' => '文章作者不能为空',
-            'art_content.required' => '文章内容不能为空',
         ];
 
         if(!empty($input['art_thumb'])){
@@ -68,7 +65,9 @@ class ArticleController extends Controller
         if($validator->passes()){
             $input['is_hot'] = (isset($input['is_hot']) && $input['is_hot'] == 'on') ? 1 : 0;
             $input['is_mark'] = (isset($input['is_mark']) && $input['is_mark'] == 'on') ? 1 : 0;
-            $result = $this->articleService->save($input);
+            $content = $input['art_content'];
+            unset($input['art_content']);
+            $result = $this->articleService->save($input,$content);
             if($result){
                 return redirect('/backend/article');
             }else{

@@ -183,6 +183,9 @@ return [
         // 百度富文本编辑器
         Stevenyangecho\UEditor\UEditorServiceProvider::class,
 
+        // Markdown 文本编辑器
+        Chenhua\MarkdownEditor\MarkdownEditorServiceProvider::class,
+
     ],
 
     /*
@@ -233,7 +236,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         // 引入极验验证码
-        'Geetest' => Germey\Geetest\Geetest::class
+        'Geetest' => Germey\Geetest\Geetest::class,
+
+        // 引入Markdown
+        'MarkdownEditor' => Chenhua\MarkdownEditor\Facades\MarkdownEditor::class,
     ],
 
 ];

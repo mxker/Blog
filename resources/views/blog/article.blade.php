@@ -17,7 +17,17 @@
                 </div>
             </header>
             <a href="#" class="image featured"><img src="{{ $articleInfo['artThumbUrl'] }}" alt="" /></a>
-            {!! $articleInfo -> content !!}
+            {{--文章ID小于12使用的是ueditor，13开始使用markdown--}}
+            @if($articleInfo->art_id <= 12)
+                {!! $articleInfo -> content !!}
+            @else
+                <div id="doc-content">
+                    <textarea style="display:none;">
+                        {!! $articleInfo -> content !!}
+                    </textarea>
+                </div>
+                @include('markdown::decode',['editors'=>['doc-content']])
+            @endif
             <footer>
                 <ul class="stats">
 {{--                    <li><a href="#">General</a></li>--}}

@@ -24,19 +24,21 @@ class ArticleService
         $this->articleContentModel = new  ArticleContent();
     }
 
-    public function save($params)
+    public function save($params,$content)
     {
         try {
             DB::beginTransaction();
             $result = Article::create($params);
             $this->articleContentModel->create([
                 'article_id' => $result->art_id,
-                'content'    => $params['art_content']
+                'content'    => $content
             ]);
             DB::commit();
             return true;
         }catch (\Exception $e){
             DB::rollBack();
+            file_put_contents(base_path("demo.txt"),var_export($e->getMessage(),true),FILE_APPEND);
+
             return false;
         }
     }
