@@ -30,6 +30,7 @@ class HomeController extends Controller
         }else{
             $articlePageList = Article::query()
                 ->where('art_status','=',1)
+                ->orderBy('is_hot','desc')
                 ->orderBy('art_time', 'desc')
                 ->Paginate(3);
         }
