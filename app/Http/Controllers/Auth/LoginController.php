@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -26,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/auth/login';
 
     /**
      * Create a new controller instance.
@@ -38,20 +40,42 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function showLoginForm()
+    {
+        return view('blog.login');
+    }
+
     /**
      * @return string
      */
     public function login()
     {
-        return view('welcome');
+        $input = Input::except('_token','s');
+        $rule = [
+            'username' => 'required',
+            'password' => 'required'
+        ];
+        $message = [
+            'username.required' => '用户名不能为空',
+            'password.required' => '密码不能为空'
+        ];
+        $validator = Validator::make($input,$rule,$message);
+        if($validator->passes()){
+
+            if(true){
+                return redirect('/');
+            }else{
+                return back()->with('errors', '登录失败，请稍后重试');
+            }
+        }else{
+            return back()->withErrors($validator);
+        }
     }
 
 
     public function admin(){
         $sql = "select * from my_admin";
         $result = DB::select($sql);
-//        dd($result);// 内置dd函数
-//        $test = '呵呵哒';
 
         return view('layout.view', ['result' => $result]);
     }
