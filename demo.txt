@@ -1,7 +1,1 @@
-{
-  "codeResult": "12",
-  "codeKey": "{{codeKey}}",
-  "mobile": "",
-  "password": "123  3",
-  "username": "cc"
-}
+yum install php74w-common php74w-fpm php74w-opcache php74w-gd php74w-mysqlnd php74w-mbstring php74w-pecl-redis php74w-pecl-memcached php74w-devel
