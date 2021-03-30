@@ -186,6 +186,9 @@ return [
         // Markdown 文本编辑器
         Chenhua\MarkdownEditor\MarkdownEditorServiceProvider::class,
 
+        // Swoole 加速器
+        \SwooleTW\Http\LaravelServiceProvider::class,
+
     ],
 
     /*
