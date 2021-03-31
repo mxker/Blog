@@ -8,12 +8,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\UserModel;
+use App\Models\Admin;
 
 class HomeController extends Controller {
 
     public function index($id){
-        $userInfo = UserModel::query()->where(['admin_id' => $id])->first()-> toArray();
+        $userInfo = Admin::query()->where(['admin_id' => $id])->first()-> toArray();
         return view('backend.home',[
             'activeTab' => 'home',
             'userInfo' => $userInfo

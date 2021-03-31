@@ -41,6 +41,8 @@ Route::group(['namespace' => 'Blog'], function (){
     Route::post('search','ArticleController@search');
 
     Route::get('auth/index','AuthController@index');
+
+    Route::get('ab','TestController@index');
 });
 
 

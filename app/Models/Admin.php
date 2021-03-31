@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class UserModel extends Model {
+class Admin extends Model {
 
     protected $table = 'admin';
 
@@ -26,7 +26,7 @@ class UserModel extends Model {
      * @return bool
      */
     public static function check($request,$username, $password){
-        $userInfo = UserModel::query()->where(['admin_name' => $username]) -> first();
+        $userInfo = Admin::query()->where(['admin_name' => $username]) -> first();
         if($userInfo){
             if($password == decrypt($userInfo->admin_password)){
                 $request -> session()-> put('userInfo',[
@@ -61,7 +61,7 @@ class UserModel extends Model {
      * @return mixed
      */
     public static function insert($data){
-        $id = UserModel::query()->insertGetId([
+        $id = Admin::query()->insertGetId([
             'admin_name'        => $data['admin_name'],
             'admin_password'    => encrypt($data['admin_password']),
             'admin_email'       => $data['admin_email'],

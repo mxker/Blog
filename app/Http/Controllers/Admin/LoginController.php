@@ -8,7 +8,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\UserModel;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller {
@@ -32,7 +32,7 @@ class LoginController extends Controller {
             'password' => 'required|between:6,18',
         ]);
 
-        $userInfo = UserModel::check($request, $username, $password);
+        $userInfo = Admin::check($request, $username, $password);
         if($userInfo){
             return redirect('/backend/home/'.$userInfo->admin_id);
         }else{
@@ -78,7 +78,7 @@ class LoginController extends Controller {
             $data['admin_email']    = $request->input('email');
             $data['admin_is_super'] = 0;
 
-            $result = UserModel::insert($data);
+            $result = Admin::insert($data);
             if($result){
                 return redirect('/backend/login');
             }else{

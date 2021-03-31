@@ -4,7 +4,7 @@
 namespace App\Services;
 
 
-use App\Models\UserModel;
+use App\Models\Admin;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -15,11 +15,7 @@ use Illuminate\Support\Facades\DB;
 class AuthService
 {
     public function login($request, $username, $password){
-
-
-
-
-        $userInfo = UserModel::query()->where(['admin_name' => $username]) -> first();
+        $userInfo = Admin::query()->where(['admin_name' => $username]) -> first();
         if($userInfo){
             if($password == decrypt($userInfo->admin_password)){
                 $request -> session()-> put('userInfo',[
