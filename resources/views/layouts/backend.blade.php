@@ -196,23 +196,23 @@
                 <li @if(isset($activeTab) && $activeTab=='home') class="active opened active" @endif>
                     <a href="{{ url('backend/home/' . (isset($userInfo)?$userInfo['admin_id']:1) ) }}">
                         <i class="linecons-database"></i>
-                        <span class="title">Real-time data</span>
+                        <span class="title">数据统计</span>
                     </a>
                 </li>
                 <li @if(isset($activeTab) && ($activeTab=='article' || $activeTab == 'article.add')) class="active opened active" @endif>
                     <a href="layout-variants.html">
                         <i class="linecons-note"></i>
-                        <span class="title">Article management</span>
+                        <span class="title">文章管理</span>
                     </a>
                     <ul>
                         <li @if(isset($activeTab) && $activeTab == 'article') class="active opened active" @endif>
                             <a href="{{ url('backend/article') }}">
-                                <span class="title">Article list</span>
+                                <span class="title">文章列表</span>
                             </a>
                         </li>
                         <li @if(isset($activeTab) && $activeTab == 'article.add') class="active opened active" @endif>
                             <a href="{{ url('backend/article/create') }}">
-                                <span class="title">Add article</span>
+                                <span class="title">添加文章</span>
                             </a>
                         </li>
                     </ul>
@@ -220,17 +220,17 @@
                 <li @if(isset($activeTab) && $activeTab == 'category') class="active opened active" @endif>
                     <a href="{{ url('backend/category') }}">
                         <i class="linecons-tag"></i>
-                        <span class="title">Category management</span>
+                        <span class="title">分类管理</span>
                     </a>
                     <ul>
                         <li @if(isset($activeTab) && $activeTab == 'category') class="active opened active" @endif>
                             <a href="{{ url('backend/category') }}">
-                                <span class="title">Category List</span>
+                                <span class="title">分类列表</span>
                             </a>
                         </li>
                         <li @if(isset($activeTab) && $activeTab == 'category.add') class="active opened active" @endif>
                             <a href="{{ url('backend/category/create') }}">
-                                <span class="title">Add category</span>
+                                <span class="title">添加分类</span>
                             </a>
                         </li>
                     </ul>
